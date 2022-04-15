@@ -3,12 +3,14 @@
     <string name="password_hint">Пароль</string>
     <string name="name_hint">Имя</string>
     <string name="order_button">Перейти к заказу</string>
+    <string name="string_default_name">клиент</string>
+    <string name="string_default_password">пароль</string>
     <string name="logo_description">Логотип кафе</string>
     <string name="toast_login_button">Все поля должны быть заполнены</string>
-    <string name="hello_client">Здравствуйте, name! Кофе или чай?</string>
+    <string name="hello_client">Здравствуйте! Кофе или чай?</string>
     <string name="tea">чай</string>
     <string name="coffee">кофе</string>
-    <string name="toppings">Дополнительно к drink:</string>
+    <string name="toppings">Дополнительно:</string>
     <string name="milk">молоко</string>
     <string name="sugar">сахар</string>
     <string name="lemon">лемон</string>

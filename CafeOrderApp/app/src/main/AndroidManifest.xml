@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CafeOrderApp">
         <activity
+            android:name=".OrderDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".CreateOrderActivity"
             android:exported="false" />
         <activity
