@@ -18,7 +18,7 @@ class CreateOrderActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityCreateOrderBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        drink = getString(R.string.hello_client)
+        drink = getString(R.string.tea)
         var toppings: String = "Дополнительно к $drink:"
 
 
@@ -37,7 +37,6 @@ class CreateOrderActivity : AppCompatActivity() {
         binding.radioGroupDrinks.setOnCheckedChangeListener { _, checkedId ->
             if(checkedId == R.id.radioButtonTea){
                 drink = getString(R.string.tea)
-                binding.spinnerTypeOfCoffee.isVisible
                 binding.spinnerTypeOfCoffee.visibility = View.INVISIBLE
                 binding.spinnerTypeOfTea.visibility = View.VISIBLE
                 binding.checkboxLemon.isVisible = true
@@ -69,7 +68,7 @@ class CreateOrderActivity : AppCompatActivity() {
             }
             var order: String = "Имя: $name \n Пароль: $password \n Напиток: $drink \n Вид напитка: $typeOfDrink"
             val toppings: String = if(builderToppings.isNotEmpty()){
-                "Необходимые добавки: $builderToppings"
+                "\n Необходимые добавки: $builderToppings"
             }else{
                 ""
             }
