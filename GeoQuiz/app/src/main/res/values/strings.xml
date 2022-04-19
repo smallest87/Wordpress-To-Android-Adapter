@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Geo Quiz</string>
+    <string name="false_button">false</string>
+    <string name="true_button">true</string>
+    <string name="next_button">next</string>
+    <string name="question1">Москва - столица России</string>
+    <string name="question2">Киев - столица Армении</string>
+    <string name="question3">Калифорния находися в США</string>
+    <string name="question4">Румыния - страна Европы</string>
+    <string name="correct_toast">Правильно</string>
+    <string name="incorrect_toast">Неправильно</string>
+    <string name="test_text">Тестовый текст тестовый текст Тестовый текст тестовый текст</string>
+    <string name="first_question_warning">Отсутствует предыдущий вопрос</string>
+    <string name="button_previous_description">Кнопка назад</string>
+    <string name="button_next_description">Кнопка вперед</string>
+    <string name="correct_answers_text">Количество правильных ответов:</string>
+</resources>
