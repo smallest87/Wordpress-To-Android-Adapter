@@ -75,10 +75,12 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
+        android:contentDescription="@string/button_previous_description"
         android:src="@drawable/arrow_left"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="10dp"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ImageViewNext"
-        android:contentDescription="@string/button_previous_description" />
+        app:layout_constraintTop_toBottomOf="@id/ImageViewNext" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,7 +2,6 @@
     <string name="app_name">Geo Quiz</string>
     <string name="false_button">false</string>
     <string name="true_button">true</string>
-    <string name="next_button">next</string>
     <string name="question1">Москва - столица России</string>
     <string name="question2">Киев - столица Армении</string>
     <string name="question3">Калифорния находися в США</string>
