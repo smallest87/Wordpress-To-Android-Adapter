@@ -10,7 +10,9 @@ class QuizViewModel: ViewModel() {
         Question(R.string.question3, true),
         Question(R.string.question4,false))
     var currentIndex = 0
-    var numberOfCorrectAnswers = 0
+    var isCheater = false
+    var numberOfCheating = 3
+    var numberOfCorrectAnswers: Int = 0
     var arrayOfBool = arrayOf(true, false)
 
     val currentQuestionAnswer: Boolean
@@ -30,4 +32,9 @@ class QuizViewModel: ViewModel() {
     fun increaseNumberOfCorrectAnswers(){
         numberOfCorrectAnswers++
     }
+
+    fun decreaseNumberOfCheating(){
+        numberOfCheating--
+    }
+
 }

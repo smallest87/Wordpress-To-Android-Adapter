@@ -13,4 +13,10 @@
     <string name="button_previous_description">Кнопка назад</string>
     <string name="button_next_description">Кнопка вперед</string>
     <string name="correct_answers_text">Количество правильных ответов:</string>
+    <string name="warning_text">Вы точно хотите это сделать?</string>
+    <string name="show_answer_button">Показать ответ</string>
+    <string name="cheat_button">Cheat</string>
+    <string name="judgement_toast">Cheating is wrong</string>
+    <string name="amount_of_hints">Количество подсказок:</string>
+    <string name="initial_hint_number">3</string>
 </resources>

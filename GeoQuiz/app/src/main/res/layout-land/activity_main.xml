@@ -6,6 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
+    <TextView
+        android:id="@+id/TextViewCheatingCountNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/TextViewCorrectAnswersCount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.275"
+        app:layout_constraintStart_toEndOf="@id/TextViewCheatingCount"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/black"
+        android:text="@string/initial_hint_number"
+        app:layout_constraintVertical_bias="0.57" />
+
+    <TextView
+        android:id="@+id/TextViewCheatingCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginBottom="132dp"
+        android:text="@string/amount_of_hints"
+        app:layout_constraintBottom_toTopOf="@id/textViewQuestion"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <TextView
         android:id="@+id/TextViewCorrectAnswersCount"
         android:layout_width="wrap_content"
@@ -72,15 +96,22 @@
 
     <ImageView
         android:id="@+id/ImageViewPrevious"
-        android:layout_width="wrap_content"
+        android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginTop="20dp"
         android:contentDescription="@string/button_previous_description"
         android:src="@drawable/arrow_left"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ImageViewNext" />
+        app:layout_constraintTop_toBottomOf="@id/ImageViewNext"/>
+
+    <Button
+        android:id="@+id/cheat_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cheat_button"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toEndOf="@+id/ImageViewPrevious"
+        app:layout_constraintTop_toBottomOf="@+id/ImageViewNext" />
 </androidx.constraintlayout.widget.ConstraintLayout>
