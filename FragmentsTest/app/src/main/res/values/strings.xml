@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">FragmentsTest</string>
+    <string name="launch_next_button">Launch next</string>
+    <string name="go_back_button">go Back</string>
+    <string name="screen_label">screen #%1$d</string>
+</resources>

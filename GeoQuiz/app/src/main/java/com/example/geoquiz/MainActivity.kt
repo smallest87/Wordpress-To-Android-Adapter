@@ -1,7 +1,10 @@
 package com.example.geoquiz
 
+import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.ActivityOptions
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -16,6 +19,7 @@ private const val KEY_INDEX = "index"
 private const val KEY_NUMBER_ANSWER = "answer"
 private const val REQUEST_CODE_CHEAT = 0
 
+
 @Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
 
@@ -25,13 +29,15 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-
+    @SuppressLint("RestrictedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d(TAG, "onCreate(Bundle?) called")
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.hide()
+        val currentVersionOfAPI = Build.VERSION.SDK_INT
+        binding.TextViewVersionAPI.text = currentVersionOfAPI.toString()
 
         quizViewModel.currentIndex = savedInstanceState?.getInt(KEY_INDEX, 0)?: 0
         quizViewModel.numberOfCorrectAnswers = savedInstanceState?.getInt(KEY_NUMBER_ANSWER, 0)?: 0
@@ -64,15 +70,19 @@ class MainActivity : AppCompatActivity() {
                 updateQuestion()
             }
         }
-        binding.cheatButton.setOnClickListener {
+        binding.cheatButton.setOnClickListener { view ->
             val answerIsTrue =quizViewModel.currentQuestionAnswer
             val intent = CheatActivity.newIntent(this@MainActivity, answerIsTrue)
-            startActivityForResult(
-                intent,
-                REQUEST_CODE_CHEAT
-            )
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+                val options = ActivityOptions
+                    .makeClipRevealAnimation(view, 0 , 0, view.width, view.height)
+                startActivityForResult(intent,
+                    REQUEST_CODE_CHEAT, options.toBundle())
+            }else{
+                startActivityForResult(intent, REQUEST_CODE_CHEAT)
+            }
         }
-
+        updateQuestion()
 
     }
 
