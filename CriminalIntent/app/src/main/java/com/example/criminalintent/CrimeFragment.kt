@@ -1,4 +1,4 @@
-package layout
+package com.example.criminalintent
 
 import android.os.Bundle
 import android.text.Editable
@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.criminalintent.Crime
 import com.example.criminalintent.databinding.FragmentCrimeBinding
 
 class CrimeFragment: Fragment() {
