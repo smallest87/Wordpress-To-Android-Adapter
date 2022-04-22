@@ -18,6 +18,8 @@ class PrimaryFragment: Fragment() {
     ): View? {
         binding = FragmentPrimaryBinding.inflate(inflater, container, false)
         binding.aboutButton.setOnClickListener { onClickAbout() }
+        binding.ThemesButton.setOnClickListener { onThemesToLearnClick() }
+
         return binding.root
     }
 
@@ -27,6 +29,15 @@ class PrimaryFragment: Fragment() {
             .beginTransaction()
             .addToBackStack(null)
             .add(R.id.fragmentContainerSecondary, fragment)
+            .commit()
+    }
+
+    private fun onThemesToLearnClick(){
+        val fragment = SecondaryThemesFragment()
+        parentFragmentManager
+            .beginTransaction()
+            .addToBackStack(null)
+            .replace(R.id.fragmentContainerSecondary, fragment)
             .commit()
     }
 }

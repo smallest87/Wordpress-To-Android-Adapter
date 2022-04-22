@@ -8,4 +8,34 @@
     <string name="fragments_lifecycle_text">Fragments,\nLifecycle</string>
     <string name="current_year">2022</string>
     <string name="back_button">Back</string>
+    <string name="themes_to_learn_button">Themes to learn</string>
+
+    <string-array name="themes">
+        <item>Java</item>
+        <item>Kotlin</item>
+        <item>Activity</item>
+        <item>Intent</item>
+        <item>Fragment</item>
+        <item>MVC</item>
+        <item>MVVM</item>
+        <item>Android Lint</item>
+        <item>Layout Inspector</item>
+        <item>RecyclerView</item>
+        <item>ListView</item>
+        <item>Fragment Manager</item>
+        <item>Jetpack libraries</item>
+        <item>File Provider</item>
+        <item>Dialog Fragment</item>
+        <item>ViewModel</item>
+        <item>LiveData</item>
+        <item>AsyncTask</item>
+        <item>JSON</item>
+        <item>Looper</item>
+        <item>HandlerThread</item>
+        <item>HTTP</item>
+        <item>RxJava</item>
+        <item>WebView</item>
+        <item>Android RTX</item>
+        <item>API animations</item>
+    </string-array>
 </resources>
