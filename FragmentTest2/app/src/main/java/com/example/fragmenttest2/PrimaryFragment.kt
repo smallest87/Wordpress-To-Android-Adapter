@@ -37,7 +37,7 @@ class PrimaryFragment: Fragment() {
         parentFragmentManager
             .beginTransaction()
             .addToBackStack(null)
-            .replace(R.id.fragmentContainerSecondary, fragment)
+            .add(R.id.fragmentContainerSecondary, fragment)
             .commit()
     }
 }
