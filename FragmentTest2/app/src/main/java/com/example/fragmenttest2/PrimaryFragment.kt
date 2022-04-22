@@ -17,10 +17,15 @@ class PrimaryFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentPrimaryBinding.inflate(inflater, container, false)
+        binding.aboutButton.setOnClickListener { onClickAbout() }
         return binding.root
     }
 
     fun onClickAbout(){
-
+        val fragment = PrimaryFragment()
+        parentFragmentManager
+            .beginTransaction()
+            .add(R.id.fragmentContainerSecondary, fragment)
+            .commit()
     }
 }
