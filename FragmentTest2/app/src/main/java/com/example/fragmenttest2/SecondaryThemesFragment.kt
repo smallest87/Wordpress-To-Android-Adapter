@@ -19,14 +19,13 @@ class SecondaryThemesFragment: Fragment() {
     ): View? {
         binding = FragmentSecondaryThemesBinding.inflate(inflater, container, false)
         val adapter = ArrayAdapter(
-            context,
+            requireContext(),
             R.layout.listview_item,
             resources.getStringArray(R.array.themes))
         binding.listView.adapter = adapter
 
         binding.backButton.setOnClickListener {
            // (requireActivity() as SecondaryAboutFragment).goBack()
-            TODO()
         }
         return binding.root
     }
