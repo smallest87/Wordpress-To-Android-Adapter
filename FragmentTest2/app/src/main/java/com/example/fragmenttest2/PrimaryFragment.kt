@@ -21,10 +21,11 @@ class PrimaryFragment: Fragment() {
         return binding.root
     }
 
-    fun onClickAbout(){
-        val fragment = PrimaryFragment()
+    private fun onClickAbout(){
+        val fragment = SecondaryAboutFragment()
         parentFragmentManager
             .beginTransaction()
+            .addToBackStack(null)
             .add(R.id.fragmentContainerSecondary, fragment)
             .commit()
     }

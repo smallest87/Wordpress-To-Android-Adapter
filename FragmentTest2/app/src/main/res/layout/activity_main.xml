@@ -10,6 +10,7 @@
         android:id="@+id/fragmentContainerPrimary"
         android:layout_width="0dp"
         android:layout_height="match_parent"
+        android:background="#C2E3DF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,6 +19,7 @@
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerSecondary"
         android:layout_width="0dp"
+        android:background="#C2E3DF"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,8 +30,8 @@
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintGuide_begin="250dp"
-        android:orientation="vertical"/>
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="250dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

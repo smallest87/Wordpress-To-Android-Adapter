@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">FragmentTest2</string>
     <string name="about_button">About</string>
+    <string name="author_darkiz_mike">Author:\nDarkiZ\n(Mike)</string>
+    <string name="github">GitHub:</string>
+    <string name="github_link">github.com/\nDarkiZZZ</string>
+    <string name="test_text">Test:</string>
+    <string name="fragments_lifecycle_text">Fragments,\nLifecycle</string>
+    <string name="current_year">2022</string>
+    <string name="back_button">Back</string>
 </resources>
