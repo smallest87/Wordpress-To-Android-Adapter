@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -12,6 +13,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.criminalintent.databinding.FragmentCrimeListBinding
+import java.text.SimpleDateFormat
+import java.util.*
 
 private const val TAG = "CrimeListFragment"
 class CrimeListFragment: Fragment() {
@@ -51,6 +54,7 @@ class CrimeListFragment: Fragment() {
 
         val titleTextView: TextView = itemView.findViewById(R.id.crimeTitle)
         val dateTextView: TextView = itemView.findViewById(R.id.crimeDate)
+        val solvedImageView: ImageView = itemView.findViewById(R.id.isSolvedImage)
 
         init {
             itemView.setOnClickListener(this)
@@ -60,6 +64,11 @@ class CrimeListFragment: Fragment() {
             this.crime = crime
             titleTextView.text = crime.title
             dateTextView.text = crime.date.toString()
+            solvedImageView.visibility = if (crime.isSolved){
+                View.VISIBLE
+            }else{
+                View.INVISIBLE
+            }
         }
 
         override fun onClick(p0: View?) {
@@ -94,10 +103,13 @@ class CrimeListFragment: Fragment() {
         override fun getItemCount() = crimes.size
 
         override fun getItemViewType(position: Int): Int {
-            return if(crimes[position].requiresPolice){
+            return if(crimes[position].requiresPolice && !crimes[position].isSolved ){
                 0
-            }else{
+            }else if(crimes[position].requiresPolice && crimes[position].isSolved){
                 1
+            }
+            else{
+                2
             }
         }
     }
