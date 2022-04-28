@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,16 +19,12 @@ private const val TAG = "CrimeListFragment"
 class CrimeListFragment: Fragment() {
 
     private lateinit var binding: FragmentCrimeListBinding
-    private var adapter: CrimeAdapter? = null
+    private var adapter: CrimeAdapter? = CrimeAdapter(emptyList())
 
     private val crimeListViewModel: CrimeListViewModel by lazy {
         ViewModelProvider(this).get(CrimeListViewModel::class.java)
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        Log.d(TAG, "Total Crimes: ${crimeListViewModel.crimes.size}")
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,8 +33,21 @@ class CrimeListFragment: Fragment() {
     ): View {
         binding = FragmentCrimeListBinding.inflate(inflater, container, false)
         binding.crimeRecyclerView.layoutManager = LinearLayoutManager(context)
-        updateUI()
+        binding.crimeRecyclerView.adapter = adapter
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        crimeListViewModel.crimesLiveData.observe(
+            viewLifecycleOwner,
+            Observer { crimes ->
+                crimes?.let {
+                    Log.i(TAG, "Got Crimes ${crimes.size}")
+                    updateUI(crimes)
+                }
+            }
+        )
     }
 
     companion object{
@@ -111,9 +121,7 @@ class CrimeListFragment: Fragment() {
             }
         }
     }
-
-    private fun updateUI(){
-        val crimes =crimeListViewModel.crimes
+    private fun updateUI(crimes: List<Crime>){
         adapter = CrimeAdapter(crimes)
         binding.crimeRecyclerView.adapter = adapter
     }
