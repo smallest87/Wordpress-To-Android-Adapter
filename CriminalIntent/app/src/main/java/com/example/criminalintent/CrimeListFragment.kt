@@ -13,8 +13,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.criminalintent.databinding.FragmentCrimeListBinding
-import java.text.SimpleDateFormat
-import java.util.*
 
 private const val TAG = "CrimeListFragment"
 class CrimeListFragment: Fragment() {
