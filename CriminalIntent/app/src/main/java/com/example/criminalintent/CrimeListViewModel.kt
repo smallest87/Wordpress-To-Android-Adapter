@@ -6,5 +6,5 @@ import com.example.criminalintent.database.CrimeRepository
 class CrimeListViewModel: ViewModel() {
 
     private val crimeRepository = CrimeRepository.get()
-    val crimesLiveData = crimeRepository.getCrimes()
+    val crimesLiveData = crimeRepository.getListOfCrimesRepo()
 }

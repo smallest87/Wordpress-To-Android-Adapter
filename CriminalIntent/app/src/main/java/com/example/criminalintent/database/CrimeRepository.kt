@@ -20,8 +20,8 @@ class CrimeRepository private constructor(context: Context) {
 
     private val crimeDao = database.crimeDao()
 
-    fun getCrimes(): LiveData<List<Crime>> = crimeDao.getCrimes()
-    fun getCrime(id: UUID): LiveData<Crime?> = crimeDao.getCrime(id)
+    fun getListOfCrimesRepo(): LiveData<List<Crime>> = crimeDao.getListOfCrimes()
+    fun getCrimeByIdRepo(id: UUID): LiveData<Crime?> = crimeDao.getCrimeById(id)
 
     companion object{
         private var INSTANCE: CrimeRepository? = null

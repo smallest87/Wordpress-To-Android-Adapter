@@ -12,9 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
-
+        android:textSize="17sp"
         android:layout_marginStart="16dp"
         app:layout_constraintBottom_toTopOf="@+id/crimeDate"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,11 +33,11 @@
         android:id="@+id/isSolvedImage"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:src="@drawable/is_solved_logo"
+        android:src="@drawable/is_completed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="4dp"
         android:contentDescription="@string/check_image_of_solving_crime" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
