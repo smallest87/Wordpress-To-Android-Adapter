@@ -1,5 +1,6 @@
 package com.example.criminalintent
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -7,6 +8,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.graphics.drawable.DrawableCompat.jumpToCurrentState
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.criminalintent.databinding.FragmentCrimeBinding
@@ -112,7 +114,12 @@ class CrimeFragment : Fragment() {
     private fun updateUI() {
         binding.editTextCrimeTitle.setText(crime.title)
         binding.buttonCrimeDate.text = crime.date.toString()
-        binding.checkBoxCrimeSolved.isChecked = crime.isSolved
+        binding.checkBoxCrimeSolved.apply {
+            isChecked = crime.isSolved
+           // jumpDrawablesToCurrentState() <--- Deprecated in API Level 27.1.0
+           // Drawable.jumpToCurrentState() <--- Does not work
+            jumpDrawablesToCurrentState()
+        }
     }
 
 }
