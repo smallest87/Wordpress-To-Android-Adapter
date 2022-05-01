@@ -3,6 +3,8 @@ package com.example.criminalintent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.example.criminalintent.fragments.CrimeFragment
+import com.example.criminalintent.fragments.CrimeListFragment
 import java.util.*
 
 private const val TAG = "MainActivity"
