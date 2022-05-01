@@ -23,6 +23,7 @@ class CrimeFragment : Fragment() {
     private lateinit var binding: FragmentCrimeBinding
     private val crimeDetailViewModel: CrimeDetailViewModel by lazy {
         ViewModelProvider(this).get(CrimeDetailViewModel::class.java)
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -109,6 +110,11 @@ class CrimeFragment : Fragment() {
                 arguments = args
             }
         }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        crimeDetailViewModel.saveCrime(crime)
     }
 
     private fun updateUI() {
