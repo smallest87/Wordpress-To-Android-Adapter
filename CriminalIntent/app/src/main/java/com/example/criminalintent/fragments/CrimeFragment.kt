@@ -1,21 +1,20 @@
-package com.example.criminalintent
+package com.example.criminalintent.fragments
 
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.graphics.drawable.DrawableCompat.jumpToCurrentState
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.criminalintent.Crime
+import com.example.criminalintent.viewmodels.CrimeDetailViewModel
 import com.example.criminalintent.databinding.FragmentCrimeBinding
 import java.util.*
 
 private const val ARG_CRIME_ID = "crime_id"
-private const val TAG = "CrimeFragment"
+private const val DIALOG_DATE = "DialogDate"
 
 class CrimeFragment : Fragment() {
 
@@ -58,10 +57,7 @@ class CrimeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentCrimeBinding.inflate(inflater, container, false)
-        binding.buttonCrimeDate.apply {
-            text = crime.date.toString()
-            isEnabled = false
-        }
+
 
 
         return binding.root
@@ -97,6 +93,11 @@ class CrimeFragment : Fragment() {
         binding.checkBoxCrimeSolved.apply {
             setOnCheckedChangeListener { _, isChecked ->
                 crime.isSolved = isChecked
+            }
+        }
+        binding.buttonCrimeDate.setOnClickListener {
+            DatePickerFragment().apply {
+                show(this@CrimeFragment.requireFragmentManager(), DIALOG_DATE)
             }
         }
     }
