@@ -17,14 +17,14 @@ import java.util.*
 
 private const val ARG_CRIME_ID = "crime_id"
 private const val DIALOG_DATE = "DialogDate"
+private const val REQUEST_DATE = 0
 
-class CrimeFragment : Fragment() {
+class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
 
     private lateinit var crime: Crime
     private lateinit var binding: FragmentCrimeBinding
     private val crimeDetailViewModel: CrimeDetailViewModel by lazy {
         ViewModelProvider(this).get(CrimeDetailViewModel::class.java)
-
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -100,6 +100,7 @@ class CrimeFragment : Fragment() {
         }
         binding.buttonCrimeDate.setOnClickListener {
                 DatePickerFragment.newInstance(crime.date).apply {
+                    setTargetFragment(this@CrimeFragment, REQUEST_DATE) // <--- Deprecated, need to find replacement
                     show(this@CrimeFragment.requireFragmentManager(), DIALOG_DATE)
                 }
             }
@@ -131,6 +132,11 @@ class CrimeFragment : Fragment() {
            // Drawable.jumpToCurrentState() <--- Does not work
             jumpDrawablesToCurrentState()
         }
+    }
+
+    override fun onDateSelected(date: Date) {
+        crime.date = date
+        updateUI()
     }
 
 }

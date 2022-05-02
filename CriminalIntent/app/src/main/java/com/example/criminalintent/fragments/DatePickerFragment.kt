@@ -8,9 +8,22 @@ import java.util.*
 
 private const val ARG_DATE = "date"
 
+@Suppress("DEPRECATION")
 class DatePickerFragment: DialogFragment() {
 
+    interface CallBacks{
+        fun onDateSelected(date:Date)
+    }
+
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        val dateListener = DatePickerDialog.OnDateSetListener { _, year, month, day ->
+            val resultDate: Date = GregorianCalendar(year, month, day).time
+
+            targetFragment?.let {  // <--- Deprecated, need to find a replacement
+                (it as CallBacks).onDateSelected(resultDate)
+            }
+        }
+
         val date = arguments?.getSerializable(ARG_DATE) as Date
         val calendar = Calendar.getInstance()
         calendar.time = date
@@ -20,7 +33,7 @@ class DatePickerFragment: DialogFragment() {
 
         return DatePickerDialog(
             requireContext(),
-            null,
+            dateListener,
             initialYear,
             initialMonth,
             initialDay
