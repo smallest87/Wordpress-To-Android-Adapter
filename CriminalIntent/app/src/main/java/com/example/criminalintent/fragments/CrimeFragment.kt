@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.example.criminalintent.fragments
 
 import android.os.Bundle
@@ -42,13 +44,14 @@ class CrimeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         crimeDetailViewModel.crimeLiveData.observe(
-            viewLifecycleOwner,
-            androidx.lifecycle.Observer { crime ->
-                crime?.let {
-                    this.crime = crime
-                    updateUI()
-                }
-            })
+            viewLifecycleOwner
+//------------Observer need to be here, but Android Studio has other thoughts...
+        ) { crime ->
+            crime?.let {
+                this.crime = crime
+                updateUI()
+            }
+        }
     }
 
     override fun onCreateView(
@@ -96,11 +99,12 @@ class CrimeFragment : Fragment() {
             }
         }
         binding.buttonCrimeDate.setOnClickListener {
-            DatePickerFragment().apply {
-                show(this@CrimeFragment.requireFragmentManager(), DIALOG_DATE)
+                DatePickerFragment.newInstance(crime.date).apply {
+                    show(this@CrimeFragment.requireFragmentManager(), DIALOG_DATE)
+                }
             }
         }
-    }
+
 
     companion object {
         fun newInstance(crimeId: UUID): CrimeFragment {
