@@ -10,4 +10,6 @@
     <string name="text_view_hint_add_crime">Список пуст!\nДобавьте самое первое преступление</string>
     <string name="icon_for_hint_button">Icon for hint button</string>
     <string name="create_first_crime">Create first crime!</string>
+    <string name="choose_suspect_button">Choose Suspect</string>
+    <string name="send_crime_report_button">Send Crime Report</string>
 </resources>
