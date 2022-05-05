@@ -3,6 +3,7 @@
 package com.example.criminalintent.fragments
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -107,6 +108,20 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
                     show(this@CrimeFragment.requireFragmentManager(), DIALOG_DATE)
                 }
             }
+        binding.crimeReportButton.setOnClickListener {
+            Intent(Intent.ACTION_SEND).apply {
+                type = "text/plain"
+                putExtra(Intent.EXTRA_TEXT, getCrimeReport())
+                putExtra(
+                    Intent.EXTRA_SUBJECT,
+                    getString(R.string.crime_report_subject))
+            }.also {
+                startActivity(Intent.createChooser(
+                    it,
+                    getString(R.string.send_report)
+                ))
+            }
+        }
         }
 
 
