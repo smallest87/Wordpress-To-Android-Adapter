@@ -6,4 +6,20 @@
     <string name="crime_solved_label">Решено</string>
     <string name="contact_with_police_button">Contact with Police</string>
     <string name="check_image_of_solving_crime">Check image of solving crime</string>
+    <string name="new_crime">New Crime</string>
+    <string name="text_view_hint_add_crime">Список пуст!\nДобавьте самое первое преступление</string>
+    <string name="icon_for_hint_button">Icon for hint button</string>
+    <string name="create_first_crime">Create first crime!</string>
+    <string name="choose_suspect_button">Choose Suspect</string>
+    <string name="send_crime_report_button">Send Crime Report</string>
+    <string name="crime_report">%1$s!
+    The crime was discovered on %2$s. %3$s, and %4$s
+    </string>
+    <string name="crime_report_solved">The case is solved</string>
+    <string name="crime_report_unsolved">The case is unsolved</string>
+    <string name="crime_report_no_suspect">there is no suspect</string>
+    <string name="crime_report_suspect">the suspect is %s.</string>
+    <string name="crime_report_subject">CriminalIntent Crime Report</string>
+    <string name="send_report">Send crime report via</string>
+    <string name="call_suspect_button">call Suspect</string>
 </resources>

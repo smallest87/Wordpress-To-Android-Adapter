@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity(), CrimeListFragment.Callbacks {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_crime)
-        supportActionBar?.hide()
+        //supportActionBar?.hide() <--- commented to enable app bar for menu
 
         val currentFragment =
             supportFragmentManager.findFragmentById(R.id.fragment_container)
