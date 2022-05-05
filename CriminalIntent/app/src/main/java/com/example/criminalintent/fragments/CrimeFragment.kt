@@ -5,6 +5,7 @@ package com.example.criminalintent.fragments
 
 import android.content.Intent
 import android.os.Bundle
+import android.provider.ContactsContract
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
@@ -22,6 +23,7 @@ private const val ARG_CRIME_ID = "crime_id"
 private const val DIALOG_DATE = "DialogDate"
 private const val REQUEST_DATE = 0
 private const val DATE_FORMAT = "EEE, MMM, dd"
+private const val REQUEST_CONTACT = 1
 
 class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
 
@@ -122,6 +124,15 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
                 ))
             }
         }
+
+        binding.crimeSuspectButton.apply{
+            val pickContactIntent =
+            Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI)
+
+            setOnClickListener {
+                startActivityForResult(pickContactIntent, REQUEST_CONTACT)
+            }
+        }
         }
 
 
@@ -149,6 +160,9 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
            // jumpDrawablesToCurrentState() <--- Deprecated in API Level 27.1.0
            // Drawable.jumpToCurrentState() <--- Does not work
             jumpDrawablesToCurrentState()
+        }
+        if(crime.suspect.isEmpty()){
+            binding.crimeSuspectButton.text = crime.suspect
         }
     }
 
