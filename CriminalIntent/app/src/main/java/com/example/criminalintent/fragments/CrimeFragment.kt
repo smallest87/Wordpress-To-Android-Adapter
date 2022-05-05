@@ -3,7 +3,9 @@
 package com.example.criminalintent.fragments
 
 
+import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.text.Editable
@@ -186,6 +188,34 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
     override fun onDateSelected(date: Date) {
         crime.date = date
         updateUI()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        when{
+            resultCode != Activity.RESULT_OK -> return
+
+            requestCode == REQUEST_CONTACT && data != null -> {
+                val contactUri: Uri? = data.data
+                // for what field it have to return
+                val queryFields = arrayOf(ContactsContract.Contacts.DISPLAY_NAME)
+                val cursor = contactUri?.let {
+                    requireActivity().contentResolver
+                        .query(it, queryFields, null, null, null)
+                }
+                cursor?.use {
+                    //at least ine result
+                    if(it.count == 0){
+                        return
+                    }
+                //first column of the table is name
+                it.moveToFirst()
+                    val gotSuspect = it.getString(0)
+                    crime.suspect = gotSuspect
+                    crimeDetailViewModel.saveCrime(crime)
+                    binding.crimeSuspectButton.text = gotSuspect
+                }
+            }
+        }
     }
 
 }
