@@ -64,4 +64,14 @@
         android:layout_height="wrap_content"
         android:text="@string/send_crime_report_button"/>
 
+    <Button
+        android:id="@+id/callSuspectButton"
+        android:backgroundTint="@color/cardview_light_background"
+        android:textColor="@color/black"
+        style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:text="@string/call_suspect_button"/>
+
 </LinearLayout>

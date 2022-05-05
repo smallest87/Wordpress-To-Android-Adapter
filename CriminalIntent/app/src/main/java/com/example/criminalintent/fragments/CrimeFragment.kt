@@ -28,6 +28,7 @@ private const val DIALOG_DATE = "DialogDate"
 private const val REQUEST_DATE = 0
 private const val DATE_FORMAT = "EEE, MMM, dd"
 private const val REQUEST_CONTACT = 1
+private const val REQUEST_PHONE_NUMBER = 2
 
 class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
 
@@ -147,6 +148,10 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
                 //  ------------------------------------------------
             }
         }
+        binding.callSuspectButton.setOnClickListener {
+            val phoneContactContract = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "1122334455"))
+            startActivity(phoneContactContract)
+        }
     }
 
 
@@ -177,6 +182,9 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
         }
         if(crime.suspect.isNotEmpty()){
             binding.crimeSuspectButton.text = crime.suspect
+        }
+        if(crime.suspect.isBlank()){
+            binding.crimeSuspectButton.visibility = View.VISIBLE
         }
     }
 
@@ -215,7 +223,7 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
                         .query(it, queryFields, null, null, null)
                 }
                 cursor?.use {
-                    //at least ine result
+                    //at least one result
                     if(it.count == 0){
                         return
                     }
@@ -226,6 +234,9 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
                     crimeDetailViewModel.saveCrime(crime)
                     binding.crimeSuspectButton.text = gotSuspect
                 }
+            }
+            requestCode == REQUEST_PHONE_NUMBER && data != null ->{
+
             }
         }
     }
