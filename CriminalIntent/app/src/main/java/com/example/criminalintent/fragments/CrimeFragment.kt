@@ -161,7 +161,7 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
            // Drawable.jumpToCurrentState() <--- Does not work
             jumpDrawablesToCurrentState()
         }
-        if(crime.suspect.isEmpty()){
+        if(crime.suspect.isNotEmpty()){
             binding.crimeSuspectButton.text = crime.suspect
         }
     }
