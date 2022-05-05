@@ -2,6 +2,7 @@
 
 package com.example.criminalintent.fragments
 
+
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -11,6 +12,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.criminalintent.Crime
+import com.example.criminalintent.R
 import com.example.criminalintent.viewmodels.CrimeDetailViewModel
 import com.example.criminalintent.databinding.FragmentCrimeBinding
 import java.util.*
@@ -18,6 +20,7 @@ import java.util.*
 private const val ARG_CRIME_ID = "crime_id"
 private const val DIALOG_DATE = "DialogDate"
 private const val REQUEST_DATE = 0
+private const val DATE_FORMAT = "EEE, MMM, dd"
 
 class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
 
@@ -132,6 +135,23 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
            // Drawable.jumpToCurrentState() <--- Does not work
             jumpDrawablesToCurrentState()
         }
+    }
+
+    private fun getCrimeReport(): String{
+        val solvedString = if (crime.isSolved){
+            getString(R.string.crime_report_solved)
+        }else{
+            getString(R.string.crime_report_unsolved)
+        }
+
+        val dateString = android.text.format.DateFormat.format(DATE_FORMAT, crime.date)
+        val suspect = if (crime.suspect.isBlank()){
+            getString(R.string.crime_report_no_suspect)
+        }else{
+            getString(R.string.crime_report_suspect, crime.suspect)
+        }
+        return getString(R.string.crime_report,
+        crime.title, dateString, solvedString, suspect)
     }
 
     override fun onDateSelected(date: Date) {
