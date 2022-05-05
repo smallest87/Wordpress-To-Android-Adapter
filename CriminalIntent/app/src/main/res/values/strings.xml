@@ -7,4 +7,7 @@
     <string name="contact_with_police_button">Contact with Police</string>
     <string name="check_image_of_solving_crime">Check image of solving crime</string>
     <string name="new_crime">New Crime</string>
+    <string name="text_view_hint_add_crime">Список пуст!\nДобавьте самое первое преступление</string>
+    <string name="icon_for_hint_button">Icon for hint button</string>
+    <string name="create_first_crime">Create first crime!</string>
 </resources>
