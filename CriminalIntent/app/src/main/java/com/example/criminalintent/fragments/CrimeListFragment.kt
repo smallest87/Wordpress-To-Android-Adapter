@@ -48,11 +48,14 @@ class CrimeListFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
+       //    return inflater.inflate(R.layout.list_item_empty, container, false)  <--- for empty CrimeList
+
         binding = FragmentCrimeListBinding.inflate(inflater, container, false)
-        binding.crimeRecyclerView.layoutManager = LinearLayoutManager(context)
-        binding.crimeRecyclerView.adapter = adapter
-        return binding.root
-    }
+            binding.crimeRecyclerView.layoutManager = LinearLayoutManager(context)
+            binding.crimeRecyclerView.adapter = adapter
+            return binding.root
+        }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
