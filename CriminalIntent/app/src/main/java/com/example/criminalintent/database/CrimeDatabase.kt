@@ -31,3 +31,12 @@ val migration_1_2 = object : Migration(1, 2) {
         )
     }
 }
+
+val migration_1_3 = object : Migration(2, 3){
+    override fun migrate(database: SupportSQLiteDatabase) {
+        database.execSQL(
+            "ALTER TABLE Crime ADD COLUMN phone_number TEXT NOT NULL DEFAULT ''"
+        )
+    }
+
+}
