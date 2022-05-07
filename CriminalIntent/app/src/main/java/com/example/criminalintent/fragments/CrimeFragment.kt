@@ -17,13 +17,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.criminalintent.Crime
-import com.example.criminalintent.MainActivity
 import com.example.criminalintent.R
 import com.example.criminalintent.viewmodels.CrimeDetailViewModel
 import com.example.criminalintent.databinding.FragmentCrimeBinding
@@ -177,8 +175,10 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
         return true
     }
 
-    override fun onRequestPermissionsResult(requestCode: Int,
-                                            permissions: Array<String>, grantResults: IntArray) {
+    @Deprecated("Deprecated in Java")
+    override fun onRequestPermissionsResult(requestCode: Int,          // <----- Deprecated! Need to find replacement
+                                            permissions: Array<String>,
+                                            grantResults: IntArray) {
         Log.d("in fragment on request", "Permission callback called-------")
         when (requestCode) {
             REQUEST_PHONE_NUMBER -> {
@@ -281,6 +281,7 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
         updateUI()
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         when{
             resultCode != Activity.RESULT_OK -> return
