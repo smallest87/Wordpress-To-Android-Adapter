@@ -20,7 +20,7 @@ class CrimeRepository private constructor(context: Context) {
         context.applicationContext,
         CrimeDatabase::class.java,
         DATABASE_NAME
-    ).addMigrations(migration_1_2)
+    ).addMigrations(migration_2_3)
         .build()
 
     private val crimeDao = database.crimeDao()
