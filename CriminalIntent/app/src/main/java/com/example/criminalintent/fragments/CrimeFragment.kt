@@ -55,7 +55,6 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
     }
 
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         crimeDetailViewModel.crimeLiveData.observe(
@@ -114,29 +113,35 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
             }
         }
         binding.buttonCrimeDate.setOnClickListener {
-                DatePickerFragment.newInstance(crime.date).apply {
-                    setTargetFragment(this@CrimeFragment, REQUEST_DATE) // <--- Deprecated, need to find replacement
-                    show(this@CrimeFragment.requireFragmentManager(), DIALOG_DATE)
-                }
+            DatePickerFragment.newInstance(crime.date).apply {
+                setTargetFragment(
+                    this@CrimeFragment,
+                    REQUEST_DATE
+                ) // <--- Deprecated, need to find replacement
+                show(this@CrimeFragment.requireFragmentManager(), DIALOG_DATE)
             }
+        }
         binding.crimeReportButton.setOnClickListener {
             Intent(Intent.ACTION_SEND).apply {
                 type = "text/plain"
                 putExtra(Intent.EXTRA_TEXT, getCrimeReport())
                 putExtra(
                     Intent.EXTRA_SUBJECT,
-                    getString(R.string.crime_report_subject))
+                    getString(R.string.crime_report_subject)
+                )
             }.also {
-                startActivity(Intent.createChooser(
-                    it,
-                    getString(R.string.send_report)
-                ))
+                startActivity(
+                    Intent.createChooser(
+                        it,
+                        getString(R.string.send_report)
+                    )
+                )
             }
         }
 
-        binding.crimeSuspectButton.apply{
+        binding.crimeSuspectButton.apply {
             val pickContactIntent =
-            Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI)
+                Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI)
 
             setOnClickListener {
                 startActivityForResult(pickContactIntent, REQUEST_CONTACT)
@@ -144,9 +149,11 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
                 //  --------Checking for address book on phone -----
                 val packageManager: PackageManager = requireActivity().packageManager
                 val resolvedActivity: ResolveInfo? =
-                    packageManager.resolveActivity(pickContactIntent,
-                        PackageManager.MATCH_DEFAULT_ONLY)
-                if(resolvedActivity == null){
+                    packageManager.resolveActivity(
+                        pickContactIntent,
+                        PackageManager.MATCH_DEFAULT_ONLY
+                    )
+                if (resolvedActivity == null) {
                     isEnabled = false
                 }
                 //  ------------------------------------------------
@@ -156,29 +163,39 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
         //-----------------------------------------------------------------------------------------------------------------------------------
 
         binding.callSuspectButton.setOnClickListener {
-            if(checkAndRequestPermissions()){
-                val phoneContactContract = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "1122334455"))
-                startActivity(phoneContactContract)}
+            if (checkAndRequestPermissions()) {
+                val phoneContactContract =
+                    Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "1122334455"))
+                startActivity(phoneContactContract)
+            }
         }
     }
+
     private fun checkAndRequestPermissions(): Boolean {
-        val call = ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CALL_PHONE)
+        val call =
+            ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CALL_PHONE)
         val listPermissionsNeeded = ArrayList<String>()
         if (call != PackageManager.PERMISSION_GRANTED) {
             listPermissionsNeeded.add(Manifest.permission.CALL_PHONE)
         }
 
         if (listPermissionsNeeded.isNotEmpty()) {
-            ActivityCompat.requestPermissions(requireActivity(), listPermissionsNeeded.toTypedArray(), REQUEST_PHONE_NUMBER)
+            ActivityCompat.requestPermissions(
+                requireActivity(),
+                listPermissionsNeeded.toTypedArray(),
+                REQUEST_PHONE_NUMBER
+            )
             return false
         }
         return true
     }
 
     @Deprecated("Deprecated in Java")
-    override fun onRequestPermissionsResult(requestCode: Int,          // <----- Deprecated! Need to find replacement
-                                            permissions: Array<String>,
-                                            grantResults: IntArray) {
+    override fun onRequestPermissionsResult(
+        requestCode: Int,          // <----- Deprecated! Need to find replacement
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
         Log.d("in fragment on request", "Permission callback called-------")
         when (requestCode) {
             REQUEST_PHONE_NUMBER -> {
@@ -247,33 +264,35 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
         binding.buttonCrimeDate.text = crime.date.toString()
         binding.checkBoxCrimeSolved.apply {
             isChecked = crime.isSolved
-           // jumpDrawablesToCurrentState() <--- Deprecated in API Level 27.1.0
-           // Drawable.jumpToCurrentState() <--- Does not work
+            // jumpDrawablesToCurrentState() <--- Deprecated in API Level 27.1.0
+            // Drawable.jumpToCurrentState() <--- Does not work
             jumpDrawablesToCurrentState()
         }
-        if(crime.suspect.isNotEmpty()){
+        if (crime.suspect.isNotEmpty()) {
             binding.crimeSuspectButton.text = crime.suspect
         }
-        if(crime.suspect.isBlank()){
+        if (crime.suspect.isBlank()) {
             binding.crimeSuspectButton.visibility = View.VISIBLE
         }
     }
 
-    private fun getCrimeReport(): String{
-        val solvedString = if (crime.isSolved){
+    private fun getCrimeReport(): String {
+        val solvedString = if (crime.isSolved) {
             getString(R.string.crime_report_solved)
-        }else{
+        } else {
             getString(R.string.crime_report_unsolved)
         }
 
         val dateString = android.text.format.DateFormat.format(DATE_FORMAT, crime.date)
-        val suspect = if (crime.suspect.isBlank()){
+        val suspect = if (crime.suspect.isBlank()) {
             getString(R.string.crime_report_no_suspect)
-        }else{
+        } else {
             getString(R.string.crime_report_suspect, crime.suspect)
         }
-        return getString(R.string.crime_report,
-        crime.title, dateString, solvedString, suspect)
+        return getString(
+            R.string.crime_report,
+            crime.title, dateString, solvedString, suspect
+        )
     }
 
     override fun onDateSelected(date: Date) {
@@ -283,7 +302,7 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
 
     @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        when{
+        when {
             resultCode != Activity.RESULT_OK -> return
 
             requestCode == REQUEST_CONTACT && data != null -> {
@@ -296,18 +315,18 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
                 }
                 cursor?.use {
                     //at least one result
-                    if(it.count == 0){
+                    if (it.count == 0) {
                         return
                     }
-                //first column of the table is name
-                it.moveToFirst()
+                    //first column of the table is name
+                    it.moveToFirst()
                     val gotSuspect = it.getString(0)
                     crime.suspect = gotSuspect
                     crimeDetailViewModel.saveCrime(crime)
                     binding.crimeSuspectButton.text = gotSuspect
                 }
             }
-            requestCode == REQUEST_PHONE_NUMBER && data != null ->{
+            requestCode == REQUEST_PHONE_NUMBER && data != null -> {
 
             }
         }
