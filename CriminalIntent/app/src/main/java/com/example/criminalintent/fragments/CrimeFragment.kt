@@ -157,13 +157,13 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
         //--------------------FOR CALLS----------------------------------------(start)--------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
 
-        /*binding.callSuspectButton.setOnClickListener {
+        binding.callSuspectButton.setOnClickListener {
             if(checkAndRequestPermissions()){
                 val phoneContactContract = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "1122334455"))
                 startActivity(phoneContactContract)}
-        }*/
+        }
     }
-    /*private fun checkAndRequestPermissions(): Boolean {
+    private fun checkAndRequestPermissions(): Boolean {
         val call = ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CALL_PHONE)
         val listPermissionsNeeded = ArrayList<String>()
         if (call != PackageManager.PERMISSION_GRANTED) {
@@ -197,11 +197,11 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
                         // process the normal flow
                         //else any one or both the permissions are not granted
                     } else {
-                        Log.d("in fragment on request", "Some permissions are not granted ask again ")
+                        /*Log.d("in fragment on request", "Some permissions are not granted ask again ")
                         //permission is denied (this is the first time, when "never ask again" is not checked) so ask again explaining the usage of permission
                         //                        // shouldShowRequestPermissionRationale will return true
                         //show the dialog or snackbar saying its necessary and try again otherwise proceed with setup.
-                        *//*if (ActivityCompat.shouldShowRequestPermissionRationale(context, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                        if (ActivityCompat.shouldShowRequestPermissionRationale(context, Manifest.permission.WRITE_EXTERNAL_STORAGE)
                             ||
                             ActivityCompat.shouldShowRequestPermissionRationale(requireContext(), Manifest.permission.CAMERA)
                             ||
@@ -214,13 +214,13 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
                                 .show()
                             //                            //proceed with logic by disabling the related features or quit the app.
                         }//permission is denied (and never ask again is  checked)
-                        //shouldShowRequestPermissionRationale will return false*//*
+                        //shouldShowRequestPermissionRationale will return false*/
                     }
                 }
             }
         }
 
-    }*/
+    }
 
     //--------------------FOR CALLS----------------------------------------(end)--------------------------------------------------------
     //---------------------------------------------------------------------------------------------------------------------------------
