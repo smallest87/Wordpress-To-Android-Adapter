@@ -159,7 +159,7 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
 
         binding.callSuspectButton.setOnClickListener {
             if(checkAndRequestPermissions()){
-                val phoneContactContract = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "+79000000000"))
+                val phoneContactContract = Intent(Intent.ACTION_CALL, Uri.parse(crime.phoneNumber))
                 startActivity(phoneContactContract)}
         }
     }
@@ -299,40 +299,28 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
                         val contactId = cursor1.getString(cursor1.getColumnIndexOrThrow(ContactsContract.Contacts._ID))
                         val contactName = cursor1.getString(cursor1.getColumnIndexOrThrow(ContactsContract.Contacts.DISPLAY_NAME))
                         val contactResults = cursor1.getString(cursor1.getColumnIndexOrThrow(ContactsContract.Contacts.HAS_PHONE_NUMBER))
+                        val idResultHold = contactResults.toInt()
                         crime.suspect = contactName
                         binding.crimeSuspectButton.text = contactName
 
-                        cursor2 = requireActivity().contentResolver.query(ContactsContract.CommonDataKinds.Phone.CONTENT_FILTER_URI,
-                        null,
-                        ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = " + contactId,
-                        null,
-                        null)
+                        if (idResultHold == 1) {
+                            cursor2 = requireActivity().contentResolver.query(ContactsContract.CommonDataKinds.Phone.CONTENT_FILTER_URI,
+                                null,
+                                ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = " + contactId,
+                                null,
+                                null)
 
-                        if (cursor2!!.moveToNext()){
-                            val contactNumber = cursor2.getString(cursor2.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Phone.NUMBER))
+                            if (cursor2!!.moveToNext()){
+                                val contactNumber = cursor2.getString(cursor2.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Phone.NUMBER))
+                                crime.phoneNumber = contactNumber
 
+                            }
+                            cursor2.close()
                         }
+                        crimeDetailViewModel.saveCrime(crime)
                     }
+                    cursor1.close()
                 }
-                /*val contactUri: Uri? = data.data
-                // for what field it have to return
-                val queryFields = arrayOf(ContactsContract.Contacts.DISPLAY_NAME)
-                val cursor = contactUri?.let {
-                    requireActivity().contentResolver
-                        .query(it, queryFields, null, null, null)
-                }
-                cursor?.use {
-                    //at least one result
-                    if(it.count == 0){
-                        return
-                    }
-                //first column of the table is name
-                it.moveToFirst()
-                    val gotSuspect = it.getString(0)
-                    crime.suspect = gotSuspect
-                    crimeDetailViewModel.saveCrime(crime)
-                    binding.crimeSuspectButton.text = gotSuspect
-                }*/
             }
         }
     }
