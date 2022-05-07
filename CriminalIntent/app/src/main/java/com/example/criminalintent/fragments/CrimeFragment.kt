@@ -55,6 +55,7 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
     }
 
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         crimeDetailViewModel.crimeLiveData.observe(
