@@ -3,6 +3,7 @@
 package com.example.criminalintent.fragments
 
 
+import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -12,12 +13,17 @@ import android.os.Bundle
 import android.provider.ContactsContract
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.criminalintent.Crime
+import com.example.criminalintent.MainActivity
 import com.example.criminalintent.R
 import com.example.criminalintent.viewmodels.CrimeDetailViewModel
 import com.example.criminalintent.databinding.FragmentCrimeBinding
@@ -148,11 +154,76 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
                 //  ------------------------------------------------
             }
         }
-        binding.callSuspectButton.setOnClickListener {
-            val phoneContactContract = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "1122334455"))
-            startActivity(phoneContactContract)
-        }
+        //--------------------FOR CALLS----------------------------------------(start)--------------------------------------------------------
+        //-----------------------------------------------------------------------------------------------------------------------------------
+
+        /*binding.callSuspectButton.setOnClickListener {
+            if(checkAndRequestPermissions()){
+                val phoneContactContract = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "1122334455"))
+                startActivity(phoneContactContract)}
+        }*/
     }
+    /*private fun checkAndRequestPermissions(): Boolean {
+        val call = ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CALL_PHONE)
+        val listPermissionsNeeded = ArrayList<String>()
+        if (call != PackageManager.PERMISSION_GRANTED) {
+            listPermissionsNeeded.add(Manifest.permission.CALL_PHONE)
+        }
+
+        if (listPermissionsNeeded.isNotEmpty()) {
+            ActivityCompat.requestPermissions(requireActivity(), listPermissionsNeeded.toTypedArray(), REQUEST_PHONE_NUMBER)
+            return false
+        }
+        return true
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int,
+                                            permissions: Array<String>, grantResults: IntArray) {
+        Log.d("in fragment on request", "Permission callback called-------")
+        when (requestCode) {
+            REQUEST_PHONE_NUMBER -> {
+
+                val perms = HashMap<String, Int>()
+                // Initialize the map with both permissions
+                perms[Manifest.permission.CALL_PHONE] = PackageManager.PERMISSION_GRANTED
+                // Fill with actual results from user
+                if (grantResults.isNotEmpty()) {
+                    for (i in permissions.indices)
+                        perms[permissions[i]] = grantResults[i]
+                    // Check for both permissions
+                    if (perms[Manifest.permission.CALL_PHONE] == PackageManager.PERMISSION_GRANTED
+                    ) {
+                        print("Storage permissions are required")
+                        // process the normal flow
+                        //else any one or both the permissions are not granted
+                    } else {
+                        Log.d("in fragment on request", "Some permissions are not granted ask again ")
+                        //permission is denied (this is the first time, when "never ask again" is not checked) so ask again explaining the usage of permission
+                        //                        // shouldShowRequestPermissionRationale will return true
+                        //show the dialog or snackbar saying its necessary and try again otherwise proceed with setup.
+                        *//*if (ActivityCompat.shouldShowRequestPermissionRationale(context, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                            ||
+                            ActivityCompat.shouldShowRequestPermissionRationale(requireContext(), Manifest.permission.CAMERA)
+                            ||
+                            ActivityCompat.shouldShowRequestPermissionRationale(requireContext(), Manifest.permission.READ_EXTERNAL_STORAGE)
+                            ||
+                            ActivityCompat.shouldShowRequestPermissionRationale(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION)) {
+
+                        } else {
+                            Toast.makeText(requireContext(), "Go to settings and enable permissions", Toast.LENGTH_LONG)
+                                .show()
+                            //                            //proceed with logic by disabling the related features or quit the app.
+                        }//permission is denied (and never ask again is  checked)
+                        //shouldShowRequestPermissionRationale will return false*//*
+                    }
+                }
+            }
+        }
+
+    }*/
+
+    //--------------------FOR CALLS----------------------------------------(end)--------------------------------------------------------
+    //---------------------------------------------------------------------------------------------------------------------------------
 
 
     companion object {
