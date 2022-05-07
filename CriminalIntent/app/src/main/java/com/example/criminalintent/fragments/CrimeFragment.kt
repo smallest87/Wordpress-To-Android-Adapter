@@ -8,12 +8,13 @@ import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.pm.ResolveInfo
+import android.database.Cursor
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,8 +32,9 @@ private const val ARG_CRIME_ID = "crime_id"
 private const val DIALOG_DATE = "DialogDate"
 private const val REQUEST_DATE = 0
 private const val DATE_FORMAT = "EEE, MMM, dd"
-private const val REQUEST_CONTACT = 1
-private const val REQUEST_PHONE_NUMBER = 2
+private const val REQUEST_CONTACT = 10
+private const val REQUEST_PHONE_NUMBER = 11
+private const val CONTACT_PERMISSION_CODE = 1
 
 class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
 
@@ -157,7 +159,7 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
 
         binding.callSuspectButton.setOnClickListener {
             if(checkAndRequestPermissions()){
-                val phoneContactContract = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "1122334455"))
+                val phoneContactContract = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "+79000000000"))
                 startActivity(phoneContactContract)}
         }
     }
@@ -175,7 +177,7 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
         return true
     }
 
-    @Deprecated("Deprecated in Java")
+    /*@Deprecated("Deprecated in Java")
     override fun onRequestPermissionsResult(requestCode: Int,          // <----- Deprecated! Need to find replacement
                                             permissions: Array<String>,
                                             grantResults: IntArray) {
@@ -197,7 +199,7 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
                         // process the normal flow
                         //else any one or both the permissions are not granted
                     } else {
-                        /*Log.d("in fragment on request", "Some permissions are not granted ask again ")
+                        *//*Log.d("in fragment on request", "Some permissions are not granted ask again ")
                         //permission is denied (this is the first time, when "never ask again" is not checked) so ask again explaining the usage of permission
                         //                        // shouldShowRequestPermissionRationale will return true
                         //show the dialog or snackbar saying its necessary and try again otherwise proceed with setup.
@@ -214,13 +216,13 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
                                 .show()
                             //                            //proceed with logic by disabling the related features or quit the app.
                         }//permission is denied (and never ask again is  checked)
-                        //shouldShowRequestPermissionRationale will return false*/
+                        //shouldShowRequestPermissionRationale will return false*//*
                     }
                 }
             }
         }
 
-    }
+    }*/
 
     //--------------------FOR CALLS----------------------------------------(end)--------------------------------------------------------
     //---------------------------------------------------------------------------------------------------------------------------------
@@ -287,7 +289,32 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
             resultCode != Activity.RESULT_OK -> return
 
             requestCode == REQUEST_CONTACT && data != null -> {
-                val contactUri: Uri? = data.data
+                val cursor1: Cursor
+                val cursor2: Cursor?
+
+                val uri = data.data
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    cursor1 = requireActivity().contentResolver.query(uri!!, null, null, null)!!
+                    if (cursor1.moveToFirst()){
+                        val contactId = cursor1.getString(cursor1.getColumnIndexOrThrow(ContactsContract.Contacts._ID))
+                        val contactName = cursor1.getString(cursor1.getColumnIndexOrThrow(ContactsContract.Contacts.DISPLAY_NAME))
+                        val contactResults = cursor1.getString(cursor1.getColumnIndexOrThrow(ContactsContract.Contacts.HAS_PHONE_NUMBER))
+                        crime.suspect = contactName
+                        binding.crimeSuspectButton.text = contactName
+
+                        cursor2 = requireActivity().contentResolver.query(ContactsContract.CommonDataKinds.Phone.CONTENT_FILTER_URI,
+                        null,
+                        ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = " + contactId,
+                        null,
+                        null)
+
+                        if (cursor2!!.moveToNext()){
+                            val contactNumber = cursor2.getString(cursor2.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Phone.NUMBER))
+
+                        }
+                    }
+                }
+                /*val contactUri: Uri? = data.data
                 // for what field it have to return
                 val queryFields = arrayOf(ContactsContract.Contacts.DISPLAY_NAME)
                 val cursor = contactUri?.let {
@@ -305,12 +332,22 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
                     crime.suspect = gotSuspect
                     crimeDetailViewModel.saveCrime(crime)
                     binding.crimeSuspectButton.text = gotSuspect
-                }
-            }
-            requestCode == REQUEST_PHONE_NUMBER && data != null ->{
-
+                }*/
             }
         }
     }
+
+    private fun checkContactPermission(): Boolean{
+        return ContextCompat.checkSelfPermission(
+            requireContext(),
+            Manifest.permission.READ_CONTACTS
+        ) == PackageManager.PERMISSION_GRANTED
+    }
+
+    private fun requestContactPermission(){
+        val permission = arrayOf(Manifest.permission.READ_CONTACTS)
+        activity?.let { ActivityCompat.requestPermissions(it, permission, CONTACT_PERMISSION_CODE) }
+    }
+
 
 }
