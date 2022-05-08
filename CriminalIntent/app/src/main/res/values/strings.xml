@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Criminal Intent</string>
-    <string name="crime_title_hint">Введите заголовок для преступления</string>
+    <string name="crime_title_hint">Заголовок для преступления</string>
     <string name="crime_title_label">Заголовок</string>
     <string name="crime_details_label">Детали</string>
     <string name="crime_solved_label">Решено</string>
@@ -23,4 +23,6 @@
     <string name="send_report">Send crime report via</string>
     <string name="call_suspect_button">call Suspect</string>
     <string name="the_suspect_is_text">The suspect is:</string>
+    <string name="photo_of_crime_description">Photo of crime</string>
+    <string name="button_to_take_a_photo">Button to take a photo of crime</string>
 </resources>
