@@ -4,6 +4,7 @@ package com.example.criminalintent.fragments
 
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -94,6 +95,7 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
         return binding.root
     }
 
+    @SuppressLint("QueryPermissionsNeeded")
     override fun onStart() {
         super.onStart()
 
@@ -234,8 +236,8 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
     }
 
     @Deprecated("Deprecated in Java")
-    override fun onRequestPermissionsResult(
-        requestCode: Int,          // <----- Deprecated! Need to find replacement
+    override fun onRequestPermissionsResult( // <----- Deprecated! Need to find replacement
+        requestCode: Int,
         permissions: Array<String>,
         grantResults: IntArray
     ) {
@@ -279,7 +281,6 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
                 }
             }
         }
-
     }
 
     //--------------------FOR CALLS----------------------------------------(end)--------------------------------------------------------
@@ -397,5 +398,4 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
         requireActivity().revokeUriPermission(photoUri,
         Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
     }
-
 }
