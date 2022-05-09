@@ -383,9 +383,17 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
 
             }
             requestCode == REQUEST_PHOTO -> {
+                requireActivity().revokeUriPermission(photoUri,
+                Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
                 updatePhotoView()
             }
         }
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        requireActivity().revokeUriPermission(photoUri,
+        Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
     }
 
 }
