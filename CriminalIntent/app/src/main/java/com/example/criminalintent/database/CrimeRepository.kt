@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.room.Room
 import com.example.criminalintent.Crime
 import com.example.criminalintent.database.CrimeDatabase
+import java.io.File
 import java.lang.IllegalStateException
 import java.util.*
 import java.util.concurrent.Executor
@@ -15,6 +16,7 @@ private const val DATABASE_NAME = "crime-database"
 class CrimeRepository private constructor(context: Context) {
 
     private val executor = Executors.newSingleThreadExecutor()
+    private val filesDir  = context.applicationContext.filesDir
 
     private val database: CrimeDatabase = Room.databaseBuilder(
         context.applicationContext,
@@ -39,6 +41,8 @@ class CrimeRepository private constructor(context: Context) {
             crimeDao.addCrime(crime)
         }
     }
+
+    fun getPhotoFile(crime: Crime): File = File(filesDir, crime.photoFileName)
 
     companion object{
         private var INSTANCE: CrimeRepository? = null

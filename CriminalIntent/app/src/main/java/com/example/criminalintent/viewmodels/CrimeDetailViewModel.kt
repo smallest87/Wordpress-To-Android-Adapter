@@ -6,6 +6,7 @@ import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.example.criminalintent.Crime
 import com.example.criminalintent.database.CrimeRepository
+import java.io.File
 import java.util.*
 
 class CrimeDetailViewModel: ViewModel() {
@@ -24,5 +25,9 @@ class CrimeDetailViewModel: ViewModel() {
 
     fun saveCrime(crime: Crime){
         crimeRepository.updateCrime(crime)
+    }
+
+    fun getPhotoFile(crime: Crime): File{
+        return  crimeRepository.getPhotoFile(crime)
     }
 }
