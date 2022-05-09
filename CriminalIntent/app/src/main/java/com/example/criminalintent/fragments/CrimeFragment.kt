@@ -27,6 +27,7 @@ import com.example.criminalintent.Crime
 import com.example.criminalintent.R
 import com.example.criminalintent.viewmodels.CrimeDetailViewModel
 import com.example.criminalintent.databinding.FragmentCrimeBinding
+import com.example.criminalintent.getScaledBitmap
 import java.io.File
 import java.util.*
 
@@ -315,6 +316,7 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
         if (crime.suspect.isBlank()) {
             binding.crimeSuspectButton.visibility = View.VISIBLE
         }
+        updatePhotoView()
     }
 
     private fun getCrimeReport(): String {
@@ -334,6 +336,16 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
             R.string.crime_report,
             crime.title, dateString, solvedString, suspect
         )
+    }
+
+    //----------------------For downloading bitmap to ImageView------------(start)
+    private fun updatePhotoView(){
+        if(photoFile.exists()){
+            val bitmap = getScaledBitmap(photoFile.path, requireActivity())
+            binding.imageViewPhoto.setImageBitmap(bitmap)
+        }else{
+            binding.imageViewPhoto.setImageBitmap(null)
+        }
     }
 
     override fun onDateSelected(date: Date) {
@@ -369,6 +381,9 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
             }
             requestCode == REQUEST_PHONE_NUMBER && data != null -> {
 
+            }
+            requestCode == REQUEST_PHOTO -> {
+                updatePhotoView()
             }
         }
     }
