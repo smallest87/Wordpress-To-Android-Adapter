@@ -25,6 +25,7 @@ import com.example.criminalintent.Crime
 import com.example.criminalintent.R
 import com.example.criminalintent.viewmodels.CrimeDetailViewModel
 import com.example.criminalintent.databinding.FragmentCrimeBinding
+import java.io.File
 import java.util.*
 
 private const val ARG_CRIME_ID = "crime_id"
@@ -37,6 +38,7 @@ private const val REQUEST_PHONE_NUMBER = 2
 class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
 
     private lateinit var crime: Crime
+    private lateinit var photoFile: File
     private lateinit var binding: FragmentCrimeBinding
     private val crimeDetailViewModel: CrimeDetailViewModel by lazy {
         ViewModelProvider(this).get(CrimeDetailViewModel::class.java)
@@ -64,6 +66,7 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
         ) { crime ->
             crime?.let {
                 this.crime = crime
+                photoFile = crimeDetailViewModel.getPhotoFile(crime)
                 updateUI()
             }
         }
