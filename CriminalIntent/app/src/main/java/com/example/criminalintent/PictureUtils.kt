@@ -1,8 +1,17 @@
 package com.example.criminalintent
 
+import android.app.Activity
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Point
 import kotlin.math.roundToInt
+
+@Suppress("DEPRECATION")
+fun getScaledBitmap(path: String, activity: Activity): Bitmap{
+    val size = Point()
+    activity.windowManager.defaultDisplay.getSize(size) // <--- Deprecated, need to find a replacement
+    return getScaledBitmap(path, size.x, size.y)
+}
 
 fun getScaledBitmap(path: String, destWidth: Int, destHeight: Int):Bitmap {
     //reading image sizes on disc
