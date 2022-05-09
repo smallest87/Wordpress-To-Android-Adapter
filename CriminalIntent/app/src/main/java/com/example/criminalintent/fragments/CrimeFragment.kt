@@ -8,6 +8,7 @@ import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.pm.ResolveInfo
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.provider.ContactsContract
@@ -343,6 +344,7 @@ class CrimeFragment : Fragment(), DatePickerFragment.CallBacks {
         if(photoFile.exists()){
             val bitmap = getScaledBitmap(photoFile.path, requireActivity())
             binding.imageViewPhoto.setImageBitmap(bitmap)
+            binding.imageViewPhoto.setBackgroundColor(Color.rgb(255,255,255))
         }else{
             binding.imageViewPhoto.setImageBitmap(null)
         }
