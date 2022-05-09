@@ -4,6 +4,8 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
+    <uses-feature android:name="android.hardware.camera"
+                                android:required="false"/>
     <application
         android:name=".CriminalIntentApplication"
         android:allowBackup="true"
