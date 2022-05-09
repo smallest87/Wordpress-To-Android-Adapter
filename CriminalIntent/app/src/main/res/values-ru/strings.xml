@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Criminal Intent</string>
+    <string name="crime_title_hint">Происшествие</string>
+    <string name="crime_title_label">Заголовок</string>
+    <string name="crime_details_label">Детали</string>
+    <string name="crime_solved_label">Решено</string>
+    <string name="contact_with_police_button">Связаться с полицией</string>
+    <string name="check_image_of_solving_crime">Посмотреть фото решенного происшествия</string>
+    <string name="new_crime">Новое происшествие</string>
+    <string name="text_view_hint_add_crime">Список пуст!\nДобавьте свое первое происшествие</string>
+    <string name="icon_for_hint_button">Иконка для кнопки-подсказки</string>
+    <string name="create_first_crime">Добавить первое происшествие!</string>
+    <string name="choose_suspect_button">Выбрать подозреваемого</string>
+    <string name="send_crime_report_button">Отправить отсчет</string>
+    <string name="crime_report">%1$s!
+    Преступление произошло %2$s. %3$s, и %4$s
+    </string>
+    <string name="crime_report_solved">Случай решен</string>
+    <string name="crime_report_unsolved">Случай не решен</string>
+    <string name="crime_report_no_suspect">Подозреваемый отстутсвует</string>
+    <string name="crime_report_suspect">Подозреваемый: %s.</string>
+    <string name="crime_report_subject">CriminalIntent Отсчет по Происшествию</string>
+    <string name="send_report">Отправить отсчет через</string>
+    <string name="call_suspect_button">Позвонить подозреваемому</string>
+    <string name="the_suspect_is_text">Подозреваемый: </string>
+    <string name="photo_of_crime_description">Фотография происшествия</string>
+    <string name="button_to_take_a_photo">Кнопка снимка происшествия</string>
+</resources>
