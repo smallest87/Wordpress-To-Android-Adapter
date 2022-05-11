@@ -15,6 +15,8 @@ fun getScaledBitmap(path: String, activity: Activity): Bitmap{
 
 fun getScaledBitmap(path: String, destWidth: Int, destHeight: Int):Bitmap {
     //reading image sizes on disc
+
+
     var options = BitmapFactory.Options()
     options.inJustDecodeBounds = true
     BitmapFactory.decodeFile(path, options)
