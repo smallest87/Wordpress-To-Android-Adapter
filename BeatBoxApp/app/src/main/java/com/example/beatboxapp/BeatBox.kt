@@ -14,7 +14,7 @@ class BeatBox(private val assets: AssetManager) {
         sounds = loadSounds()
     }
 
-    fun loadSounds(): List<Sound>{
+    private fun loadSounds(): List<Sound>{
 
         val soundNames: Array<String>
         try {
