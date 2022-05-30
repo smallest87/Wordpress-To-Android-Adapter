@@ -3,9 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/user/Documents/GitHub/Android-Studying/BeatBoxApp/app/src/main/res/drawable/button_beat_box_normal.xml" value="0.2225" />
-        <entry key="..\:/Users/user/Documents/GitHub/Android-Studying/BeatBoxApp/app/src/main/res/layout/activity_main.xml" value="0.14722222222222223" />
-        <entry key="..\:/Users/user/Documents/GitHub/Android-Studying/BeatBoxApp/app/src/main/res/layout/list_item_sound.xml" value="0.36666666666666664" />
+        <entry key="app/src/main/res/drawable/button_beat_box.xml" value="0.207" />
+        <entry key="app/src/main/res/drawable/button_beat_box_normal.xml" value="0.207" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/list_item_sound.xml" value="0.35520833333333335" />
       </map>
