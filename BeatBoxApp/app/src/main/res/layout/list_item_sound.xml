@@ -19,8 +19,6 @@
             android:layout_marginEnd="4dp"
             tools:text = "Sound name"
             android:onClick="@{() -> viewModel.onButtonClicked()}"
-            android:backgroundTint="@color/dark_teal"
-            android:text="@{viewModel.title}"
-            android:background="@drawable/button_beat_box_normal"/>
+            android:text="@{viewModel.title}"/>
     </FrameLayout>
 </layout>
