@@ -5,6 +5,7 @@ import android.content.pm.ResolveInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -38,6 +39,7 @@ class NerdLauncherActivity : AppCompatActivity() {
             )
         })
         Log.i(TAG, "Found ${activities.size} activities")
+        recyclerView.adapter = ActivityAdapter(activities)
     }
 
     private class ActivityHolder(itemView: View): RecyclerView.ViewHolder(itemView){
@@ -55,15 +57,19 @@ class NerdLauncherActivity : AppCompatActivity() {
     private class ActivityAdapter(val activities: List<ResolveInfo>):
             RecyclerView.Adapter<ActivityHolder>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ActivityHolder {
-            TODO("Not yet implemented")
+            val layoutInflater = LayoutInflater.from(parent.context)
+            val view = layoutInflater.inflate(
+                android.R.layout.simple_list_item_1,parent, false)
+            return ActivityHolder(view)
         }
 
         override fun onBindViewHolder(holder: ActivityHolder, position: Int) {
-            TODO("Not yet implemented")
+            val resolveInfo = activities[position]
+            holder.bindActivity(resolveInfo)
         }
 
         override fun getItemCount(): Int {
-            TODO("Not yet implemented")
+            return activities.size
         }
     }
 }
