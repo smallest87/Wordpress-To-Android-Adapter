@@ -25,6 +25,7 @@ class NerdLauncherActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.app_recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(this)
         setupAdapter()
+
     }
 
     private fun setupAdapter(){
