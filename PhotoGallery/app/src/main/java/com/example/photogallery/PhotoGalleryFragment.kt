@@ -20,7 +20,6 @@ class PhotoGalleryFragment : Fragment(){
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl("https://www.flickr.com/")
             .build()
-
         val flickrApi: FlickrApi = retrofit.create(FlickrApi::class.java)
 
     }
