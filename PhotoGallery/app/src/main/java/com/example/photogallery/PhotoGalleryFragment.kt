@@ -22,6 +22,7 @@ class PhotoGalleryFragment : Fragment(){
             .build()
 
         val flickrApi: FlickrApi = retrofit.create(FlickrApi::class.java)
+
     }
 
     override fun onCreateView(
