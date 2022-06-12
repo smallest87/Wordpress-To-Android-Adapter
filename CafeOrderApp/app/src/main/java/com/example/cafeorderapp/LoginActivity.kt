@@ -7,7 +7,10 @@ import android.widget.Toast
 import com.example.cafeorderapp.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
+    // Menggunakan 'lateinit' sebagai persiapan binding sebelum onCreate
+    // - Masukkan Agenda pembelajaran 'Tentang lateinit'
     private lateinit var binding: ActivityLoginBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
