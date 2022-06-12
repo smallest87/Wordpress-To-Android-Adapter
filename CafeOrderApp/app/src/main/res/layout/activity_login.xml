@@ -1,39 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:focusableInTouchMode="true"
     tools:context=".LoginActivity">
 
-    <ImageView
-        android:id="@+id/imageViewLogo"
+    <FrameLayout
         android:layout_width="wrap_content"
-        android:layout_height="436dp"
-        android:src="@drawable/logo2"
-        android:contentDescription="@string/logo_description" />
-    <EditText
-        android:id="@+id/editTextName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="@string/name_hint"/>
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/imageViewLogo"
+            android:src="@drawable/good_morning_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/logo_description" />
+    </FrameLayout>
 
-    <EditText
-        android:id="@+id/editTextPassword"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:hint="@string/password_hint"/>
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/orderButton"
-        android:theme="@style/ThemeOverlay.MaterialComponents.TimePicker"
-        android:layout_marginTop="50dp"
-        android:textColor="@color/black"
-        android:textSize="20dp"
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gotham"
+                android:text="Selamat "
+                android:textColor="#ffffff"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gotham"
+                android:text="Datang"
+                android:textColor="#ffffff"
+                android:textSize="24sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="2dp"
+                android:background="#deff00" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/calibri"
+        android:gravity="center"
+        android:text="We pursue a relaxed gaming experience"
+        android:textColor="#9affffff"
+        android:textSize="10sp"
+        tools:ignore="SmallSp" />
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/order_button"/>
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="32dp"
+        android:orientation="vertical"
+        android:paddingLeft="32dp"
+        android:paddingRight="32dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#96ffffff"
+            android:theme="@style/EditScreenTextInputLayoutStyle">
+            <EditText
+                android:id="@+id/editTextName"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawablePadding="16dp"
+                android:fontFamily="@font/calibri"
+                android:textSize="16sp"
+                android:inputType="textPersonName"
+                android:maxLines="1"
+                android:textColor="@android:color/white"
+                android:drawableEnd="@drawable/ic_email_white_24dp"
+                android:hint="@string/name_hint"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#96ffffff"
+            android:theme="@style/EditScreenTextInputLayoutStyle">
+            <EditText
+                android:id="@+id/editTextPassword"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawablePadding="16dp"
+                android:fontFamily="@font/calibri"
+                android:textSize="16sp"
+                android:maxLines="1"
+                android:textColor="@android:color/white"
+                android:inputType="textPassword"
+                android:drawableEnd="@drawable/ic_lock_white_24dp"
+                android:hint="@string/password_hint"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/orderButton"
+            android:textColor="#96ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/calibri"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/buttonshapewhitebg"
+            android:text="@string/order_button"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:textSize="16sp"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/calibri"
+        android:text="Hanya ingin melihat-lihat, \ntanpa mendaftar."
+        android:textAlignment="center"
+        android:textColor="#96ffffff"
+        android:textSize="16sp" />
 
 </LinearLayout>
+
+</RelativeLayout>

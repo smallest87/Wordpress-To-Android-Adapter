@@ -19,7 +19,7 @@ class CreateOrderActivity : AppCompatActivity() {
         binding = ActivityCreateOrderBinding.inflate(layoutInflater)
         setContentView(binding.root)
         drink = getString(R.string.tea)
-        var toppings: String = "Дополнительно к $drink:"
+        var toppings: String = "Tambahannya $drink:"
 
 
         val intent = intent
@@ -30,7 +30,7 @@ class CreateOrderActivity : AppCompatActivity() {
             name = getString(R.string.string_default_name)
             password = getString(R.string.string_default_password)
         }
-        val hello: String = "Здравствуйте, $name! Кофе или чай?"
+        val hello: String = "Halo, $name! Kopi atau teh?"
         binding.textViewHello.text = hello
 
 
@@ -47,7 +47,7 @@ class CreateOrderActivity : AppCompatActivity() {
                 binding.spinnerTypeOfCoffee.visibility = View.VISIBLE
                 binding.checkboxLemon.isVisible = false
             }
-            val toppings: String = "Дополнительно к $drink:"
+            val toppings: String = "Tambahannya $drink:"
             binding.textViewToppings.text = toppings
         }
         binding.imageViewButton.setOnClickListener {
@@ -66,9 +66,9 @@ class CreateOrderActivity : AppCompatActivity() {
             } else{
                 binding.spinnerTypeOfCoffee.selectedItem.toString()
             }
-            var order: String = "Имя: $name \n Пароль: $password \n Напиток: $drink \n Вид напитка: $typeOfDrink"
+            var order: String = "Nama: $name \n Sandi: $password \n Minuman: $drink \n Jenis minuman: $typeOfDrink"
             val toppings: String = if(builderToppings.isNotEmpty()){
-                "\n Необходимые добавки: $builderToppings"
+                "\n Tambahan yang diperlukan: $builderToppings"
             }else{
                 ""
             }

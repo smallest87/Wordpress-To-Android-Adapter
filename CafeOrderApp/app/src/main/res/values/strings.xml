@@ -1,30 +1,30 @@
 <resources>
     <string name="app_name">CafeOrderApp</string>
-    <string name="password_hint">Пароль</string>
-    <string name="name_hint">Имя</string>
-    <string name="order_button">Перейти к заказу</string>
-    <string name="string_default_name">клиент</string>
-    <string name="string_default_password">пароль</string>
-    <string name="logo_description">Логотип кафе</string>
-    <string name="toast_login_button">Все поля должны быть заполнены</string>
-    <string name="hello_client">Здравствуйте! Кофе или чай?</string>
-    <string name="tea">чай</string>
-    <string name="coffee">кофе</string>
-    <string name="toppings">Дополнительно:</string>
-    <string name="milk">молоко</string>
-    <string name="sugar">сахар</string>
-    <string name="lemon">лимон</string>
-    <string name="choose_drink">Выберете тип напитка:</string>
-    <string name="order">Заказать:</string>
-    <string name="button_send_description">Отправить заказ</string>
+    <string name="password_hint">Sandi</string>
+    <string name="name_hint">Nama</string>
+    <string name="order_button">LOGIN</string>
+    <string name="string_default_name">Pengguna</string>
+    <string name="string_default_password">Sandi</string>
+    <string name="logo_description">Logo Cafe</string>
+    <string name="toast_login_button">Semua data wajib diisi</string>
+    <string name="hello_client">Halo, kopi atau teh?</string>
+    <string name="tea">Teh</string>
+    <string name="coffee">Kopi</string>
+    <string name="toppings">Toping:</string>
+    <string name="milk">Susu</string>
+    <string name="sugar">Gula</string>
+    <string name="lemon">Lemon</string>
+    <string name="choose_drink">Pilih minumannya:</string>
+    <string name="order">Pesan:</string>
+    <string name="button_send_description">Kirim pesanan</string>
     <string-array name="types_of_coffee">
-        <item>Американо</item>
-        <item>Эспрессо</item>
-        <item>Латте</item>
+        <item>Americano</item>
+        <item>Espreso</item>
+        <item>Latte</item>
     </string-array>
     <string-array name="types_of_tea">
-        <item>Зеленый</item>
-        <item>Черный</item>
-        <item>Красный</item>
+        <item>Teh Hijau</item>
+        <item>Teh Hitam</item>
+        <item>Teh Merah</item>
     </string-array>
 </resources>
