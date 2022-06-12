@@ -9,13 +9,18 @@ import androidx.core.view.isVisible
 import com.example.cafeorderapp.databinding.ActivityCreateOrderBinding
 
 class CreateOrderActivity : AppCompatActivity() {
+    // Menggunakan 'lateinit' sebagai persiapan binding sebelum onCreate
     private lateinit var binding: ActivityCreateOrderBinding
+
     private var drink: String = ""
     private var name: String = ""
     private var password: String = ""
     private var builderToppings = StringBuilder()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Mengemas seluruh control yang ada di activity_create_order.xml agar bisa dikendalikan di class ini.
         binding = ActivityCreateOrderBinding.inflate(layoutInflater)
         setContentView(binding.root)
         drink = getString(R.string.tea)
@@ -23,6 +28,7 @@ class CreateOrderActivity : AppCompatActivity() {
 
 
         val intent = intent
+        // Mengecek apakah ada data yang dibawa dari activity lain di dalam variabel Extra
         if(intent.hasExtra("name") && intent.hasExtra("password")){
             name = intent.getStringExtra("name").toString()
             password = intent.getStringExtra("password").toString()
@@ -33,7 +39,7 @@ class CreateOrderActivity : AppCompatActivity() {
         val hello: String = "Halo, $name! Kopi atau teh?"
         binding.textViewHello.text = hello
 
-
+        // Mengondisikan jika radioGroupDrinks diklik
         binding.radioGroupDrinks.setOnCheckedChangeListener { _, checkedId ->
             if(checkedId == R.id.radioButtonTea){
                 drink = getString(R.string.tea)
@@ -50,6 +56,8 @@ class CreateOrderActivity : AppCompatActivity() {
             val toppings: String = "Tambahannya $drink:"
             binding.textViewToppings.text = toppings
         }
+
+        // Mengondisikan jika imageviewButton diklik
         binding.imageViewButton.setOnClickListener {
             builderToppings.setLength(0)
             if (binding.checkboxMilk.isChecked){
