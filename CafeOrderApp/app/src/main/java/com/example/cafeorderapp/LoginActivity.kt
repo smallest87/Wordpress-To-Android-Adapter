@@ -26,8 +26,12 @@ class LoginActivity : AppCompatActivity() {
             // Jika variabel 'name' dan 'password' tidak kosong, maka...
             if(name.isNotEmpty() && password.isNotEmpty()){
                 val intent = Intent(this, CreateOrderActivity::class.java)
+
+                // Menyiapkan data yang akan dibawa ke activity lain
                 intent.putExtra("name", name)
                 intent.putExtra("password", password)
+
+                // Memulai activity lainnya
                 startActivity(intent)
             }
             else{
