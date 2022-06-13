@@ -28,7 +28,7 @@ class TerasAplikasi : AppCompatActivity() {
 
             // Jika variabel 'name' dan 'password' tidak kosong, maka...
             if(name.isNotEmpty() && password.isNotEmpty()){
-                val intent = Intent(this, MejaPesan::class.java)
+                val intent = Intent(this, RuangAnggota::class.java)
 
                 // Menyiapkan data yang akan dibawa ke activity lain
                 intent.putExtra("name", name)
