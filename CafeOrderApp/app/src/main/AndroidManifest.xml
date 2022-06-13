@@ -10,13 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CafeOrderApp">
         <activity
-            android:name=".LembarPesanan"
+            android:name=".DetailPesanan"
             android:exported="false" />
         <activity
             android:name=".MejaPesan"
             android:exported="false" />
         <activity
-            android:name=".RuangTambahan"
+            android:name=".MejaPendaftaran"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:windowSoftInputMode="stateHidden|adjustPan"
             android:exported="false" />

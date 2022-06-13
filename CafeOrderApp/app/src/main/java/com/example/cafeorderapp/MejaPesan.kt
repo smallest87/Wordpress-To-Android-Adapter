@@ -5,11 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
-import com.example.cafeorderapp.databinding.ActivityCreateOrderBinding
+import com.example.cafeorderapp.databinding.LayarMejaPesanBinding
 
 class MejaPesan : AppCompatActivity() {
     // Menggunakan 'lateinit' sebagai persiapan binding sebelum onCreate
-    private lateinit var binding: ActivityCreateOrderBinding
+    private lateinit var binding: LayarMejaPesanBinding
 
     private var drink: String = ""
     private var name: String = ""
@@ -20,7 +20,7 @@ class MejaPesan : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         // Mengemas seluruh control yang ada di activity_create_order.xml agar bisa dikendalikan di class ini.
-        binding = ActivityCreateOrderBinding.inflate(layoutInflater)
+        binding = LayarMejaPesanBinding.inflate(layoutInflater)
         setContentView(binding.root)
         drink = getString(R.string.tea)
         var toppings: String = "Tambahannya $drink:"
@@ -80,7 +80,7 @@ class MejaPesan : AppCompatActivity() {
                 ""
             }
             var fullOrder = order + toppings
-            var intent = Intent(this, LembarPesanan::class.java)
+            var intent = Intent(this, DetailPesanan::class.java)
             intent.putExtra("order", fullOrder)
             startActivity(intent)
         }
