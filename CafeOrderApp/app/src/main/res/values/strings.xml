@@ -3,6 +3,7 @@
     <string name="password_hint">Sandi</string>
     <string name="name_hint">Nama</string>
     <string name="order_button">LOGIN</string>
+    <string name="other_button">LAINNYA</string>
     <string name="string_default_name">Pengguna</string>
     <string name="string_default_password">Sandi</string>
     <string name="logo_description">Logo Cafe</string>

@@ -130,6 +130,18 @@
                 android:textStyle="bold"
                 android:textSize="16sp"
                 android:id="@+id/orderButton" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#96ffffff"
+                android:fontFamily="@font/calibri"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/buttonshapewhitebg"
+                android:text="@string/other_button"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:id="@+id/otherButton" />
         </LinearLayout>
         <TextView
             android:layout_width="match_parent"
