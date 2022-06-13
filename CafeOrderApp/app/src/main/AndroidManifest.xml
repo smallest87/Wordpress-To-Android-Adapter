@@ -16,6 +16,9 @@
             android:name=".CreateOrderActivity"
             android:exported="false" />
         <activity
+            android:name=".TambahanActivity"
+            android:exported="false" />
+        <activity
             android:name=".LoginActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.NoActionBar"
