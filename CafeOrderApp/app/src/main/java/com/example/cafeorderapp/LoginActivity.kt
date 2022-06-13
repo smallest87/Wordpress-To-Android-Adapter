@@ -47,5 +47,11 @@ class LoginActivity : AppCompatActivity() {
 
             startActivity(intent)
         }
+
+        binding.tamuButton.setOnClickListener {
+            val intent = Intent(this,TamuActivity::class.java)
+
+            startActivity(intent)
+        }
     }
 }
