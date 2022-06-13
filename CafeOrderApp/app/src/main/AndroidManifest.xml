@@ -24,6 +24,9 @@
             android:name=".RuangTamu"
             android:exported="false" />
         <activity
+            android:name=".RuangAnggota"
+            android:exported="false" />
+        <activity
             android:name=".TerasAplikasi"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.NoActionBar"
