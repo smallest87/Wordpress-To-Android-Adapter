@@ -7,10 +7,15 @@
     android:focusableInTouchMode="true"
     tools:context=".TambahanActivity">
 
-    <TextView
-        android:id="@+id/textView2"
+    <FrameLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="34sp" />
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/login_background"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/logo_description"
+            android:id="@+id/imageViewLogo" />
+    </FrameLayout>
 </RelativeLayout>
