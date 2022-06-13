@@ -41,5 +41,11 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, R.string.toast_login_button, Toast.LENGTH_SHORT).show()
             }
         }
+
+        binding.otherButton.setOnClickListener {
+            val intent = Intent(this, TambahanActivity::class.java)
+
+            startActivity(intent)
+        }
     }
 }
