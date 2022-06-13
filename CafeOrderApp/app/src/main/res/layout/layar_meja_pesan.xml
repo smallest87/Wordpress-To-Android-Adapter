@@ -12,7 +12,7 @@
         android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/imageViewLogo"
-            android:src="@drawable/login_background"
+            android:src="@drawable/gambar_latar_layar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
