@@ -6,19 +6,17 @@
     android:layout_height="match_parent"
     android:focusableInTouchMode="true"
     tools:context=".LoginActivity">
-
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         <ImageView
-            android:id="@+id/imageViewLogo"
-            android:src="@drawable/good_morning_img"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:src="@drawable/good_morning_img"
             android:scaleType="centerCrop"
-            android:contentDescription="@string/logo_description" />
+            android:contentDescription="@string/logo_description"
+            android:id="@+id/imageViewLogo" />
     </FrameLayout>
-
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -26,11 +24,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="80dp"
         android:orientation="horizontal">
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -38,32 +34,27 @@
                 android:text="Selamat "
                 android:textColor="#ffffff"
                 android:textSize="24sp" />
-
         </LinearLayout>
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/gotham"
                 android:text="Datang"
                 android:textColor="#ffffff"
-                android:textSize="24sp" />
-
+                android:textSize="24sp"
+                android:id="@+id/textView" />
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_marginTop="2dp"
                 android:background="#deff00" />
-
         </LinearLayout>
     </LinearLayout>
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -75,8 +66,6 @@
         android:textColor="#9affffff"
         android:textSize="10sp"
         tools:ignore="SmallSp" />
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -86,14 +75,12 @@
         android:orientation="vertical"
         android:paddingLeft="32dp"
         android:paddingRight="32dp">
-
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColorHint="#96ffffff"
             android:theme="@style/EditScreenTextInputLayoutStyle">
             <EditText
-                android:id="@+id/editTextName"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:drawablePadding="16dp"
@@ -103,16 +90,15 @@
                 android:maxLines="1"
                 android:textColor="@android:color/white"
                 android:drawableEnd="@drawable/ic_email_white_24dp"
-                android:hint="@string/name_hint"/>
+                android:hint="@string/name_hint"
+                android:id="@+id/editTextName" />
         </com.google.android.material.textfield.TextInputLayout>
-
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColorHint="#96ffffff"
             android:theme="@style/EditScreenTextInputLayoutStyle">
             <EditText
-                android:id="@+id/editTextPassword"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:drawablePadding="16dp"
@@ -122,40 +108,37 @@
                 android:textColor="@android:color/white"
                 android:inputType="textPassword"
                 android:drawableEnd="@drawable/ic_lock_white_24dp"
-                android:hint="@string/password_hint"/>
+                android:hint="@string/password_hint"
+                android:id="@+id/editTextPassword" />
         </com.google.android.material.textfield.TextInputLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"
-        android:gravity="center"
-        android:orientation="horizontal">
-        <Button
-            android:id="@+id/orderButton"
-            android:textColor="#96ffffff"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#96ffffff"
+                android:fontFamily="@font/calibri"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/buttonshapewhitebg"
+                android:text="@string/order_button"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:id="@+id/orderButton" />
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/calibri"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/buttonshapewhitebg"
-            android:text="@string/order_button"
-            android:textAllCaps="false"
-            android:textStyle="bold"
-            android:textSize="16sp"/>
+            android:text="Hanya ingin melihat-lihat, \ntanpa mendaftar."
+            android:textAlignment="center"
+            android:textColor="#96ffffff"
+            android:textSize="16sp" />
     </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/calibri"
-        android:text="Hanya ingin melihat-lihat, \ntanpa mendaftar."
-        android:textAlignment="center"
-        android:textColor="#96ffffff"
-        android:textSize="16sp" />
-
-</LinearLayout>
-
 </RelativeLayout>
