@@ -17,6 +17,8 @@
             android:exported="false" />
         <activity
             android:name=".TambahanActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:windowSoftInputMode="stateHidden|adjustPan"
             android:exported="false" />
         <activity
             android:name=".TamuActivity"
