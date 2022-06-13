@@ -4,11 +4,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Spinner
 import androidx.core.view.isVisible
 import com.example.cafeorderapp.databinding.ActivityCreateOrderBinding
 
-class CreateOrderActivity : AppCompatActivity() {
+class MejaPesan : AppCompatActivity() {
     // Menggunakan 'lateinit' sebagai persiapan binding sebelum onCreate
     private lateinit var binding: ActivityCreateOrderBinding
 
@@ -81,7 +80,7 @@ class CreateOrderActivity : AppCompatActivity() {
                 ""
             }
             var fullOrder = order + toppings
-            var intent = Intent(this, OrderDetailActivity::class.java)
+            var intent = Intent(this, LembarPesanan::class.java)
             intent.putExtra("order", fullOrder)
             startActivity(intent)
         }

@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import com.example.cafeorderapp.databinding.ActivityLoginBinding
 
-class LoginActivity : AppCompatActivity() {
+class TerasAplikasi : AppCompatActivity() {
     // Menggunakan 'lateinit' sebagai persiapan binding sebelum onCreate
     // - Masukkan Agenda pembelajaran 'Tentang lateinit'
     private lateinit var binding: ActivityLoginBinding
@@ -28,7 +28,7 @@ class LoginActivity : AppCompatActivity() {
 
             // Jika variabel 'name' dan 'password' tidak kosong, maka...
             if(name.isNotEmpty() && password.isNotEmpty()){
-                val intent = Intent(this, CreateOrderActivity::class.java)
+                val intent = Intent(this, MejaPesan::class.java)
 
                 // Menyiapkan data yang akan dibawa ke activity lain
                 intent.putExtra("name", name)
@@ -43,13 +43,13 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.otherButton.setOnClickListener {
-            val intent = Intent(this, TambahanActivity::class.java)
+            val intent = Intent(this, RuangTambahan::class.java)
 
             startActivity(intent)
         }
 
         binding.tamuButton.setOnClickListener {
-            val intent = Intent(this,TamuActivity::class.java)
+            val intent = Intent(this,RuangTamu::class.java)
 
             startActivity(intent)
         }

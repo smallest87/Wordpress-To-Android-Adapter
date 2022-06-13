@@ -2,17 +2,16 @@ package com.example.cafeorderapp
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.cafeorderapp.databinding.ActivityTambahanBinding
+import com.example.cafeorderapp.databinding.ActivityTamuBinding
 
-class TambahanActivity : AppCompatActivity() {
+class RuangTamu : AppCompatActivity() {
 
-    private lateinit var binding: ActivityTambahanBinding
+    private lateinit var binding: ActivityTamuBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityTambahanBinding.inflate(layoutInflater)
+        binding = ActivityTamuBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
-
 }

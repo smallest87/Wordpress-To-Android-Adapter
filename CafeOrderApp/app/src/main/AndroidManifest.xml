@@ -10,21 +10,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CafeOrderApp">
         <activity
-            android:name=".OrderDetailActivity"
+            android:name=".LembarPesanan"
             android:exported="false" />
         <activity
-            android:name=".CreateOrderActivity"
+            android:name=".MejaPesan"
             android:exported="false" />
         <activity
-            android:name=".TambahanActivity"
+            android:name=".RuangTambahan"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:windowSoftInputMode="stateHidden|adjustPan"
             android:exported="false" />
         <activity
-            android:name=".TamuActivity"
+            android:name=".RuangTamu"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".TerasAplikasi"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:windowSoftInputMode="stateHidden|adjustPan"

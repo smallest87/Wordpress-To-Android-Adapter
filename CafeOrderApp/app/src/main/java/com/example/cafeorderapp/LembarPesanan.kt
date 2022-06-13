@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.cafeorderapp.databinding.ActivityOrderDetailBinding
 
-class OrderDetailActivity : AppCompatActivity() {
+class LembarPesanan : AppCompatActivity() {
 
     private lateinit var binding: ActivityOrderDetailBinding
 
@@ -17,7 +17,7 @@ class OrderDetailActivity : AppCompatActivity() {
         if(intent.hasExtra("order")){
             binding.textViewOrder.text = intent.getStringExtra("order")
         }else{
-            var backToLoginIntent = Intent(this, LoginActivity::class.java)
+            var backToLoginIntent = Intent(this, TerasAplikasi::class.java)
             startActivity(backToLoginIntent)
         }
 
