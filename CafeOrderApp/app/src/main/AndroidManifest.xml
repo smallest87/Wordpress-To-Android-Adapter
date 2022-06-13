@@ -19,6 +19,9 @@
             android:name=".TambahanActivity"
             android:exported="false" />
         <activity
+            android:name=".TamuActivity"
+            android:exported="false" />
+        <activity
             android:name=".LoginActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.NoActionBar"
