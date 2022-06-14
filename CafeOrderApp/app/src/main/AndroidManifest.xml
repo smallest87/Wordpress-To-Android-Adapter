@@ -30,6 +30,9 @@
             android:name=".RuangDapur"
             android:exported="false" />
         <activity
+            android:name=".RuangUmum"
+            android:exported="false" />
+        <activity
             android:name=".TerasAplikasi"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.NoActionBar"
