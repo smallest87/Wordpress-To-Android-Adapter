@@ -50,6 +50,19 @@
                 android:lineSpacingMultiplier="1.2"
                 android:id="@+id/itemRvTvJudul"/>
 
+
+
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvLokasi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kota Malang"
+            android:textSize="8dp"
+            android:textStyle="bold"
+            android:layout_marginStart="4dp"
+            android:background="#DBDCDE"
+            android:padding="2dp"/>
     </LinearLayout>
 </RelativeLayout>

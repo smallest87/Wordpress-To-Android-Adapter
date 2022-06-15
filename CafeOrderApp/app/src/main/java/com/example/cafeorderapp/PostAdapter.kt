@@ -22,6 +22,7 @@ class PostAdapter(private val list: ArrayList<JSONResponse>): RecyclerView.Adapt
             val formattedDate = parsedDate.format(DateTimeFormatter.ofPattern("eeee, HH:mm"))
 
             binding.itemRvTvTanggal.text = formattedDate
+            binding.tvLokasi.text = formattedDate
         }
     }
 
