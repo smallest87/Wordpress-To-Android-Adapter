@@ -5,7 +5,10 @@ import retrofit2.http.GET
 
 interface Api {
     @GET("posts?per_page=5")
-    fun getPosts(): Call<ArrayList<PostResponse>>
+    fun getPosts(): Call<ArrayList<JSONResponse>>
+
+    @GET("posts?per_page=3")
+    fun getPostsTwo(): Call<ArrayList<JSONResponse>>
 
 //    @GET("posts")
 //    fun getPosts(@Query("per_page") perPage : Int): Call<ArrayList<PostResponse>>

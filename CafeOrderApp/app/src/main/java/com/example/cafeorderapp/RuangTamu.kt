@@ -16,7 +16,7 @@ class RuangTamu : AppCompatActivity() {
 //    val JUMLAH_HALAMAN: Int = 3
 
 
-    private val list = ArrayList<PostResponse>()
+    private val list = ArrayList<JSONResponse>()
 
     private lateinit var binding: LayarRuangTamuBinding
 
@@ -29,10 +29,10 @@ class RuangTamu : AppCompatActivity() {
         binding.rvPost.setHasFixedSize(true)
         binding.rvPost.layoutManager = LinearLayoutManager(this)
 
-        RetrofitClient.instance.getPosts().enqueue(object: Callback<ArrayList<PostResponse>>{
+        RetrofitClient.instance.getPosts().enqueue(object: Callback<ArrayList<JSONResponse>>{
             override fun onResponse(
-                call: Call<ArrayList<PostResponse>>,
-                response: Response<ArrayList<PostResponse>>
+                call: Call<ArrayList<JSONResponse>>,
+                response: Response<ArrayList<JSONResponse>>
             ) {
                 val responseCode = response.code().toString()
                 response.body()?.let { list.addAll(it)}
@@ -41,7 +41,7 @@ class RuangTamu : AppCompatActivity() {
 
             }
 
-            override fun onFailure(call: Call<ArrayList<PostResponse>>, t: Throwable) {
+            override fun onFailure(call: Call<ArrayList<JSONResponse>>, t: Throwable) {
             }
         })
 
