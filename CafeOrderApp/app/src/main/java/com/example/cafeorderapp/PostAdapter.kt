@@ -10,9 +10,9 @@ import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
-class PostAdapter(private val list: ArrayList<PostResponse>): RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
+class PostAdapter(private val list: ArrayList<JSONResponse>): RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
     inner class PostViewHolder(val binding: ItemPostBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bind(jsonMentah: PostResponse) {
+        fun bind(jsonMentah: JSONResponse) {
             val nilaijudulDariJSON = jsonMentah.title
             binding.itemRvTvJudul.text = nilaijudulDariJSON.rendered
 
