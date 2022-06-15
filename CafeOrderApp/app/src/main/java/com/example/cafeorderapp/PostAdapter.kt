@@ -7,13 +7,12 @@ import com.example.cafeorderapp.databinding.ItemPostBinding
 
 class PostAdapter(private val list: ArrayList<PostResponse>): RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
     inner class PostViewHolder(val binding: ItemPostBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bind(postResponse: PostResponse) {
-            val text = postResponse.title
-            val tanggal = postResponse.date
+        fun bind(jsonMentah: PostResponse) {
+            val nilaijudulDariJSON = jsonMentah.title
+            binding.itemRvTvJudul.text = nilaijudulDariJSON.rendered
 
-            binding.tvText.text = text.rendered
-
-            binding.tvTanggal.text = tanggal
+            val nilaitanggalDariJSON = jsonMentah.date
+            binding.itemRvTvTanggal.text = nilaitanggalDariJSON
         }
     }
 
