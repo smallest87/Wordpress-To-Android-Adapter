@@ -1,18 +1,28 @@
 package com.example.cafeorderapp
 
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cafeorderapp.databinding.ItemPostBinding
+import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 class PostAdapter(private val list: ArrayList<PostResponse>): RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
     inner class PostViewHolder(val binding: ItemPostBinding): RecyclerView.ViewHolder(binding.root) {
+        @RequiresApi(Build.VERSION_CODES.O)
         fun bind(jsonMentah: PostResponse) {
             val nilaijudulDariJSON = jsonMentah.title
             binding.itemRvTvJudul.text = nilaijudulDariJSON.rendered
 
-            val nilaitanggalDariJSON = jsonMentah.date
-            binding.itemRvTvTanggal.text = nilaitanggalDariJSON
+            val nilaitanggalDariJSON = jsonMentah.date //masih tipe string
+
+            val parsedDate = LocalDateTime.parse(nilaitanggalDariJSON, DateTimeFormatter.ISO_DATE_TIME)
+            val formattedDate = parsedDate.format(DateTimeFormatter.ofPattern("eeee, HH:mm"))
+
+            binding.itemRvTvTanggal.text = formattedDate
         }
     }
 
