@@ -17,7 +17,7 @@
                 android:text="#1"
                 android:textSize="10dp"
                 android:layout_marginEnd="8dp"
-                android:id="@+id/tvTanggal"/>
+                android:id="@+id/itemRvTvTanggal"/>
             <ProgressBar
                 android:layout_width="match_parent"
                 style="@style/Widget.AppCompat.ProgressBar.Horizontal"
@@ -48,7 +48,7 @@
                 android:textColor="#202126"
                 android:fontFamily="@font/montserratregular"
                 android:lineSpacingMultiplier="1.2"
-                android:id="@+id/tvText"/>
+                android:id="@+id/itemRvTvJudul"/>
 
         </LinearLayout>
     </LinearLayout>
