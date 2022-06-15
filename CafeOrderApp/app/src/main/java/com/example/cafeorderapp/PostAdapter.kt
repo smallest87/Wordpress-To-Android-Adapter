@@ -12,7 +12,6 @@ import java.time.format.DateTimeFormatter
 
 class PostAdapter(private val list: ArrayList<PostResponse>): RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
     inner class PostViewHolder(val binding: ItemPostBinding): RecyclerView.ViewHolder(binding.root) {
-        @RequiresApi(Build.VERSION_CODES.O)
         fun bind(jsonMentah: PostResponse) {
             val nilaijudulDariJSON = jsonMentah.title
             binding.itemRvTvJudul.text = nilaijudulDariJSON.rendered
