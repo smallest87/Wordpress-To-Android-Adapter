@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="8dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="#1"
+                android:textSize="10dp"
+                android:layout_marginEnd="8dp"
+                android:id="@+id/tvTanggal"/>
+            <ProgressBar
+                android:layout_width="match_parent"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_height="4dp"
+                android:progress="90"
+                android:layout_gravity="center_vertical"
+                android:id="@+id/pbViews"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="3dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="8dp"
+                android:background="#DBDCDE"
+                android:layout_marginStart="4dp"
+                android:layout_gravity="center_horizontal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text='Kota Malang, Nasibmu Kini Setelah Pandemi'
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="#202126"
+                android:fontFamily="@font/montserratregular"
+                android:lineSpacingMultiplier="1.2"
+                android:id="@+id/tvText"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
