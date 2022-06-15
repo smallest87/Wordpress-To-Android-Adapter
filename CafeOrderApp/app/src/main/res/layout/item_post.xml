@@ -1,68 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <LinearLayout
-        android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp">
+
+    <TextView
+        android:id="@+id/itemRvTvTanggal"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingBottom="8dp">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="#1"
-                android:textSize="10dp"
-                android:layout_marginEnd="8dp"
-                android:id="@+id/itemRvTvTanggal"/>
-            <ProgressBar
-                android:layout_width="match_parent"
-                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-                android:layout_height="4dp"
-                android:progress="90"
-                android:layout_gravity="center_vertical"
-                android:id="@+id/pbViews"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+        android:text="#1"
+        android:textSize="10dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 
-            <View
-                android:layout_width="3dp"
-                android:layout_height="match_parent"
-                android:layout_marginEnd="8dp"
-                android:background="#DBDCDE"
-                android:layout_marginStart="4dp"
-                android:layout_gravity="center_horizontal"/>
+    <TextView
+        android:id="@+id/itemRvTvJudul"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserratregular"
+        android:lineSpacingMultiplier="1.2"
+        android:text='Kota Malang, Nasibmu Kini Setelah Pandemi'
+        android:textColor="#202126"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        android:paddingHorizontal="6dp"
+        android:paddingBottom="6dp"
+        app:layout_constraintStart_toEndOf="@+id/vwGarisTepi"
+        app:layout_constraintTop_toBottomOf="@+id/itemRvTvTanggal" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text='Kota Malang, Nasibmu Kini Setelah Pandemi'
-                android:textSize="16dp"
-                android:textStyle="bold"
-                android:textColor="#202126"
-                android:fontFamily="@font/montserratregular"
-                android:lineSpacingMultiplier="1.2"
-                android:id="@+id/itemRvTvJudul"/>
+    <View
+        android:id="@+id/vwGarisTepi"
+        android:layout_width="2dp"
+        android:layout_height="0dp"
+        android:background="#f3f6f4"
+        app:layout_constraintTop_toTopOf="@id/itemRvTvJudul"
+        app:layout_constraintBottom_toBottomOf="@id/tvLokasi"
+        app:layout_constraintStart_toStartOf="parent" />
 
+    <TextView
+        android:id="@+id/tvLokasi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#f3f6f4"
+        android:padding="2dp"
+        android:text="Kota Malang"
+        android:textSize="8dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/vwGarisTepi"
+        app:layout_constraintTop_toBottomOf="@+id/itemRvTvJudul" />
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:background="#f3f6f4"
+        android:padding="2dp"
+        android:text="KOTA MALANG"
+        android:textSize="8dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/tvLokasi"
+        app:layout_constraintStart_toEndOf="@id/tvLokasi" />
 
-        </LinearLayout>
+    <ImageView
+        android:id="@+id/ivLike"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginHorizontal="10dp"
+        android:src="@drawable/ic_baseline_favorite_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/vwGarisBawah"
+        app:layout_constraintBottom_toBottomOf="@id/vwGarisBawah"/>
 
-        <TextView
-            android:id="@+id/tvLokasi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Kota Malang"
-            android:textSize="8dp"
-            android:textStyle="bold"
-            android:layout_marginStart="4dp"
-            android:background="#DBDCDE"
-            android:padding="2dp"/>
-    </LinearLayout>
-</RelativeLayout>
+    <ImageView
+        android:id="@+id/ivKomentar"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginHorizontal="12dp"
+        android:src="@drawable/ic_baseline_insert_comment_24"
+        app:layout_constraintEnd_toStartOf="@id/ivLike"
+        app:layout_constraintTop_toTopOf="@id/vwGarisBawah"
+        app:layout_constraintBottom_toBottomOf="@id/vwGarisBawah"/>
+
+    <ImageView
+        android:id="@+id/ivView"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginHorizontal="12dp"
+        android:src="@drawable/ic_baseline_visibility_24"
+        app:layout_constraintEnd_toStartOf="@id/ivKomentar"
+        app:layout_constraintTop_toTopOf="@id/vwGarisBawah"
+        app:layout_constraintBottom_toBottomOf="@id/vwGarisBawah"/>
+
+    <View
+        android:id="@+id/vwGarisBawah"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#f3f6f4"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintBottom_toBottomOf="@id/vwGarisTepi"
+        app:layout_constraintEnd_toStartOf="@+id/ivView"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

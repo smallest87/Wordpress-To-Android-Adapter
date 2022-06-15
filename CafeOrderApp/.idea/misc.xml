@@ -4,6 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Cyber_MTV/Documents/GitHub/Android-Studying/CafeOrderApp/app/src/main/res/drawable/buttonshapewhitebg.xml" value="0.1" />
+        <entry key="..\:/Users/Cyber_MTV/Documents/GitHub/Android-Studying/CafeOrderApp/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.1" />
+        <entry key="..\:/Users/Cyber_MTV/Documents/GitHub/Android-Studying/CafeOrderApp/app/src/main/res/drawable/ic_baseline_insert_comment_24.xml" value="0.1" />
+        <entry key="..\:/Users/Cyber_MTV/Documents/GitHub/Android-Studying/CafeOrderApp/app/src/main/res/drawable/ic_baseline_visibility_24.xml" value="0.1565" />
         <entry key="..\:/Users/Cyber_MTV/Documents/GitHub/Android-Studying/CafeOrderApp/app/src/main/res/drawable/ic_email_white_24dp.xml" value="0.1" />
         <entry key="..\:/Users/Cyber_MTV/Documents/GitHub/Android-Studying/CafeOrderApp/app/src/main/res/layout/activity_create_order.xml" value="0.21510416666666668" />
         <entry key="..\:/Users/Cyber_MTV/Documents/GitHub/Android-Studying/CafeOrderApp/app/src/main/res/layout/activity_login.xml" value="0.21510416666666668" />
@@ -11,7 +14,7 @@
         <entry key="..\:/Users/Cyber_MTV/Documents/GitHub/Android-Studying/CafeOrderApp/app/src/main/res/layout/activity_order_detail.xml" value="0.1" />
         <entry key="..\:/Users/Cyber_MTV/Documents/GitHub/Android-Studying/CafeOrderApp/app/src/main/res/layout/activity_tambahan.xml" value="0.1" />
         <entry key="..\:/Users/Cyber_MTV/Documents/GitHub/Android-Studying/CafeOrderApp/app/src/main/res/layout/item_bacaan_terlaris.xml" value="0.33" />
-        <entry key="..\:/Users/Cyber_MTV/Documents/GitHub/Android-Studying/CafeOrderApp/app/src/main/res/layout/item_post.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/Cyber_MTV/Documents/GitHub/Android-Studying/CafeOrderApp/app/src/main/res/layout/item_post.xml" value="0.36929460580912865" />
         <entry key="..\:/Users/Cyber_MTV/Documents/GitHub/Android-Studying/CafeOrderApp/app/src/main/res/layout/layar_detail_pesanan.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Cyber_MTV/Documents/GitHub/Android-Studying/CafeOrderApp/app/src/main/res/layout/layar_meja_pendaftaran.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Cyber_MTV/Documents/GitHub/Android-Studying/CafeOrderApp/app/src/main/res/layout/layar_ruang_anggota.xml" value="0.20416666666666666" />
