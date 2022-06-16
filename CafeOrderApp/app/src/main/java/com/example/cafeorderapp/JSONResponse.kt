@@ -31,28 +31,28 @@ data class JSONResponse(
 
 data class TitleRendered (
     val rendered: String?
-    )
+)
 
 data class GuidRendered (
     val rendered: String?
-        )
+)
 
 data class ContentRendered (
     val rendered: String?,
     val protected: Boolean
-        )
+)
 
 data class ExcerptRendered (
     val rendered: String?,
     val protected: Boolean
-        )
+)
 
 data class MetaRendered (
     val spay_email: String?,
     val jetpack_publicize_message: String?,
     val jetpack_is_tweetstorm: Boolean,
     val jetpack_publicize_feature_enabled: Boolean
-        )
+)
 //data class PostResponse(
 //    @SerializedName("title")
 //    val title: Title
