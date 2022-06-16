@@ -36,6 +36,8 @@ class RuangTamu : AppCompatActivity() {
             ) {
                 val responseCode = response.code().toString()
                 response.body()?.let { list.addAll(it)}
+
+                // mengisi adapter RecyclerView Post dengan PostAdapter yang telah diisi list
                 val adapter = PostAdapter(list)
                 binding.rvPost.adapter = adapter
 
