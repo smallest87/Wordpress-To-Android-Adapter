@@ -13,9 +13,9 @@ data class JSONResponse(
     val status: String?,
     val type: String?,
     val link: String?,
-    val title: TitleRendered,
-    val content: ContentRendered,
-    val excerpt: ExcerptRendered,
+    val title: TitleRendered, // menuju subclass
+    val content: ContentRendered, // menuju subclass
+    val excerpt: ExcerptRendered, // menuju subclass
     val author: Int,
     val featured_media: Int,
     val comment_status: String?,
@@ -23,9 +23,9 @@ data class JSONResponse(
     val sticky: Boolean,
     val template: String?,
     val format: String?,
-    val meta: MetaRendered
+    val meta: MetaRendered // menuju subclass
 //    val categories: Array<t>,
-//    val tags
+//    val tags: Array
 
 )
 
