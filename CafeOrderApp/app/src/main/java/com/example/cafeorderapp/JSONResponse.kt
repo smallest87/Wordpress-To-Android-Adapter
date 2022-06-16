@@ -1,7 +1,5 @@
 package com.example.cafeorderapp
 
-import com.google.gson.annotations.SerializedName
-
 data class JSONResponse(
     val id: Int,
     val date: String?,
@@ -24,9 +22,6 @@ data class JSONResponse(
     val template: String?,
     val format: String?,
     val meta: MetaRendered // menuju subclass
-//    val categories: Array<t>,
-//    val tags: Array
-
 )
 
 data class TitleRendered (
@@ -53,10 +48,3 @@ data class MetaRendered (
     val jetpack_is_tweetstorm: Boolean,
     val jetpack_publicize_feature_enabled: Boolean
 )
-//data class PostResponse(
-//    @SerializedName("title")
-//    val title: Title
-//)
-//data class Title (
-//    val rendered: String?
-//)
