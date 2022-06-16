@@ -2,13 +2,18 @@ package com.example.cafeorderapp
 
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 interface Api {
-    @GET("posts?categories=21&per_page=5")
-    fun getPosts(): Call<ArrayList<JSONResponse>>
+    @GET("posts?")
+    fun getPosts(
+        @Query("per_page") per_page: Int?,
+        @Query("page") page: Int?,
+        @Query("_fields") _fields: String?
+    ) : Call<ArrayList<dtJSONTitleAndDate>>
 
-    @GET("posts?per_page=3")
-    fun getPostsTwo(): Call<ArrayList<JSONResponse>>
+//    @GET("posts?per_page=3")
+//    fun getPostsTwo(): Call<ArrayList<JSONResponse>>
 
 //    https://javasatu.com/wp-json/wp/v2/posts?categories=15 > Olahraga
 //    23 > POLRI

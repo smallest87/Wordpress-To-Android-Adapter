@@ -116,7 +116,7 @@
                         android:background="#DBDCDE" />
 
                     <LinearLayout
-                        android:id="@+id/bodyCard1"
+                        android:id="@+id/layout1CardView1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
@@ -132,6 +132,50 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/layout1Card2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardElevation="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout1Card1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvJudulCard2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:text="PERISTIWA"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:id="@+id/div03"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#DBDCDE" />
+
+                    <LinearLayout
+                        android:id="@+id/layout1CardView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/layout1RvPost2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
             <LinearLayout
                 android:id="@+id/footerLinear"
                 android:layout_width="match_parent"
@@ -140,7 +184,7 @@
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layout1Card1">
+                app:layout_constraintTop_toBottomOf="@id/layout1Card2">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/footerConstraint"
