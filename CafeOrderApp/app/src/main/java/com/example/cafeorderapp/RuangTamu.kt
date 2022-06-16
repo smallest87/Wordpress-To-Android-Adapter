@@ -27,8 +27,8 @@ class RuangTamu : AppCompatActivity() {
         binding = LayarRuangTamuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.rvPost.setHasFixedSize(true)
-        binding.rvPost.layoutManager = LinearLayoutManager(this)
+        binding.layout1RvPost.setHasFixedSize(true)
+        binding.layout1RvPost.layoutManager = LinearLayoutManager(this)
 
         RetrofitClient.instance.getPosts().enqueue(object: Callback<ArrayList<JSONResponse>>{
             override fun onResponse(
@@ -40,7 +40,7 @@ class RuangTamu : AppCompatActivity() {
 
                 // mengisi adapter RecyclerView Post dengan PostAdapter yang telah diisi list
                 val adapter = PostAdapter(list)
-                binding.rvPost.adapter = adapter
+                binding.layout1RvPost.adapter = adapter
 
             }
 

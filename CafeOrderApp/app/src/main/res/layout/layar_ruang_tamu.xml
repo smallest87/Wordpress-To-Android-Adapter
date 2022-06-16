@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/btnDaftar"
+            android:id="@+id/layout1BtnDaftar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Daftar"
@@ -25,7 +25,7 @@
             app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
-            android:id="@+id/ruangtamuTextView"
+            android:id="@+id/layout1TvProfil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="8dp"
@@ -37,13 +37,13 @@
             app:layout_constraintBottom_toBottomOf="parent"/>
 
         <Button
-            android:id="@+id/btnLogin"
+            android:id="@+id/layout1BtnLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Login"
             android:textSize="8dp"
             android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toStartOf="@id/btnDaftar"
+            app:layout_constraintEnd_toStartOf="@id/layout1BtnDaftar"
             app:layout_constraintTop_toTopOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -85,7 +85,7 @@
                 tools:ignore="MissingConstraints" />
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/card01"
+                android:id="@+id/layout1Card1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="8dp"
@@ -101,6 +101,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/tvJudulCard1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
@@ -109,11 +110,13 @@
                         android:textStyle="bold" />
 
                     <View
+                        android:id="@+id/div02"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:background="#DBDCDE" />
 
                     <LinearLayout
+                        android:id="@+id/bodyCard1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
@@ -122,7 +125,7 @@
                         android:paddingBottom="8dp">
 
                         <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/rvPost"
+                            android:id="@+id/layout1RvPost"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
                     </LinearLayout>
@@ -137,7 +140,7 @@
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/card01">
+                app:layout_constraintTop_toBottomOf="@id/layout1Card1">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/footerConstraint"
@@ -148,38 +151,48 @@
                     android:layout_height="wrap_content">
 
                     <TextView
-                        android:id="@+id/textView4"
+                        android:id="@+id/layout1FooterBranding"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/montserratregular"
                         android:text="Jelajahi JAVASATU.com"
-                        android:textSize="20dp"
+                        android:textColor="@color/white"
+                        android:textSize="16dp"
                         android:textStyle="bold"
-                        android:textColor="@color/white"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/textView5"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintStart_toStartOf="@+id/layout1FooterKolom1"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="NotSibling" />
+
+                    <LinearLayout
+                        android:id="@+id/layout1LinearForKolom"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="12dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_horizontal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/layout1FooterBranding">
+
+                        <TextView
+                            android:id="@+id/layout1FooterKolom2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="MENU KOLOM 2"
+                            android:layout_marginEnd="12dp"
+                            android:textColor="@color/white" />
+
+                        <TextView
+                            android:id="@+id/layout1FooterKolom1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:text="MENU KOLOM 1"
+                            android:textColor="@color/white" />
+                    </LinearLayout>
 
                     <TextView
-                        android:id="@+id/textView5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/white"
-                        android:text="MENU KOLOM 1"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-                    <TextView
-                        android:id="@+id/textView6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/white"
-                        android:text="MENU KOLOM 2"
-                        app:layout_constraintStart_toEndOf="@+id/textView5"
-                        app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-                    <TextView
-                        android:id="@+id/textView7"
+                        android:id="@+id/layout1FooterCopyright"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
@@ -187,7 +200,7 @@
                         android:layout_marginTop="16dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/textView6" />
+                        app:layout_constraintTop_toBottomOf="@id/layout1LinearForKolom" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
