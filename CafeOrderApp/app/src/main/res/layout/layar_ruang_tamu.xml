@@ -1,91 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/utamaConstraint"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    tools:context=".RuangTamu">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/headerConstrain"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/btnDaftar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Daftar"
+            android:textSize="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
             android:id="@+id/ruangtamuTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
             android:text="Hai, Julian."
             android:textSize="14dp"
             android:textStyle="bold"
-            android:layout_marginStart="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btnLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Login"
             android:textSize="8dp"
             android:layout_marginEnd="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/button2"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Daftar"
-            android:textSize="8dp"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:ignore="MissingConstraints" />
-
+            app:layout_constraintEnd_toStartOf="@id/btnDaftar"
+            app:layout_constraintTop_toTopOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:scrollbars="none">
-    <LinearLayout
+
+    <ScrollView
+        android:id="@+id/scrUtama"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:orientation="vertical">
+        android:scrollbars="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerConstrain">
 
-        <View
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/bodyConstrain"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/black"
-            tools:ignore="MissingConstraints" />
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="96dp"
-            android:background="@color/purple_200"
-            android:text="IKLAN"
-            android:textSize="36dp"
-            android:gravity="center"
-            tools:ignore="MissingConstraints" />
+            <View
+                android:id="@+id/div01"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#FDFDFD"
-            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvIklan"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@color/purple_200"
+                android:gravity="center"
+                android:text="IKLAN"
+                android:textSize="36dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/div01"
+                tools:ignore="MissingConstraints" />
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/card01"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
                 android:layout_marginHorizontal="8dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginBottom="24dp"
-                android:clickable="true"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="10dp">
+                app:cardElevation="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvIklan">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -96,7 +104,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
-                        android:text="KABAR TERBARU"
+                        android:text="PERISTIWA"
                         android:textSize="16dp"
                         android:textStyle="bold" />
 
@@ -117,86 +125,71 @@
                             android:id="@+id/rvPost"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
-
                     </LinearLayout>
-
                 </LinearLayout>
-
             </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
+            <LinearLayout
+                android:id="@+id/footerLinear"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginHorizontal="8dp"
+                android:layout_height="match_parent"
                 android:layout_marginTop="16dp"
-                android:layout_marginBottom="24dp"
-                android:clickable="true"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="10dp">
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/card01">
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/footerConstraint"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:padding="8dp"
+                    android:layout_marginBottom="50dp"
+                    android:background="@color/black"
+                    android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserratregular"
+                        android:text="Jelajahi JAVASATU.com"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/textView5"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="8dp"
-                        android:text="KABAR BERIKUTNYA"
-                        android:textSize="16dp"
-                        android:textStyle="bold" />
+                        android:textColor="@color/white"
+                        android:text="MENU KOLOM 1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#DBDCDE" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:paddingHorizontal="8dp"
-                        android:paddingTop="16dp"
-                        android:paddingBottom="8dp">
+                        android:textColor="@color/white"
+                        android:text="MENU KOLOM 2"
+                        app:layout_constraintStart_toEndOf="@+id/textView5"
+                        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/rvBerikutnya"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/ruanganggotaButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="RUANG ANGGOTA"
-                android:textSize="24dp" />
-
-            <TextView
-                android:id="@+id/ruangdapurButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="RUANG DAPUR"
-                android:textSize="24dp" />
-        </LinearLayout>
-
-    </LinearLayout>
-</ScrollView>
-
-
-</LinearLayout>
+                    <TextView
+                        android:id="@+id/textView7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:text="Copyright 2022 Javasatu.com."
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/textView6" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

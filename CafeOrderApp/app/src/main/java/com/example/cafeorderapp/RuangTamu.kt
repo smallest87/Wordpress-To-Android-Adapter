@@ -48,9 +48,9 @@ class RuangTamu : AppCompatActivity() {
             }
         })
 
-        binding.ruanganggotaButton.setOnClickListener {
-            val intent = Intent(this, RuangAnggota::class.java)
-            startActivity(intent)
-        }
+//        binding.ruanganggotaButton.setOnClickListener {
+//            val intent = Intent(this, RuangAnggota::class.java)
+//            startActivity(intent)
+//        }
     }
 }
