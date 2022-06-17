@@ -61,16 +61,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <View
-                android:id="@+id/div01"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/black"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="MissingConstraints" />
-
             <TextView
                 android:id="@+id/tvIklan"
                 android:layout_width="match_parent"
@@ -84,8 +74,18 @@
                 app:layout_constraintTop_toBottomOf="@id/div01"
                 tools:ignore="MissingConstraints" />
 
+            <View
+                android:id="@+id/div01"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
             <androidx.cardview.widget.CardView
-                android:id="@+id/layout1Card1"
+                android:id="@+id/layout1CardTerbaru"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="8dp"
@@ -101,11 +101,11 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/tvJudulCard1"
+                        android:id="@+id/tvJudulTerbaru"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
-                        android:text="PERISTIWA"
+                        android:text="TERBARU"
                         android:textSize="16dp"
                         android:textStyle="bold" />
 
@@ -125,22 +125,23 @@
                         android:paddingBottom="8dp">
 
                         <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/layout1RvPost"
+                            android:id="@+id/layout1RvTerbaru"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:nestedScrollingEnabled="false" />
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/layout1Card2"
+                android:id="@+id/layout1CardPendidikan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 app:cardElevation="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layout1Card1">
+                app:layout_constraintTop_toBottomOf="@id/layout1CardTerbaru">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -148,11 +149,11 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/tvJudulCard2"
+                        android:id="@+id/tvJudulCardPendidikan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
-                        android:text="PERISTIWA"
+                        android:text="PENDIDIKAN"
                         android:textSize="16dp"
                         android:textStyle="bold" />
 
@@ -169,9 +170,56 @@
                         android:orientation="vertical">
 
                         <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/layout1RvPost2"
+                            android:id="@+id/layout1RvPendidikan"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:nestedScrollingEnabled="false" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/layout1CardPeristiwa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardElevation="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout1CardPendidikan">
+
+                <LinearLayout
+                    android:id="@+id/layout1Linear1Peristiwa"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvJudulCardPeristiwa"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:text="PERISTIWA"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:id="@+id/divPeristiwa"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#DBDCDE" />
+
+                    <LinearLayout
+                        android:id="@+id/layout1Linear2Peristiwa"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/layout1RvPeristiwa"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:nestedScrollingEnabled="false" />
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -184,7 +232,7 @@
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layout1Card2">
+                app:layout_constraintTop_toBottomOf="@id/layout1CardPeristiwa">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/footerConstraint"

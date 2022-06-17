@@ -10,9 +10,9 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 // TITLE, JAM PUBLISH
-class AdapterTemplate01(private val list: ArrayList<dtJSONTitleAndDate>): RecyclerView.Adapter<AdapterTemplate01.AdapterTemplate01VH>() {
-    inner class AdapterTemplate01VH(val binding: ItemPostBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bind(jsonMentah: dtJSONTitleAndDate) {
+class AdapterBeritaTerbaru(private val list: ArrayList<kumpulanDataJSONBeritaTerbaru>): RecyclerView.Adapter<AdapterBeritaTerbaru.AdapterBeritaTerbaruVH>() {
+    inner class AdapterBeritaTerbaruVH(val binding: ItemPostBinding): RecyclerView.ViewHolder(binding.root) {
+        fun bind(jsonMentah: kumpulanDataJSONBeritaTerbaru) {
             Log.d("TESD","isi jsonMentah= " + jsonMentah.date.toString())
             binding.itemRvTvJudul.text = jsonMentah.title.rendered
 
@@ -22,20 +22,20 @@ class AdapterTemplate01(private val list: ArrayList<dtJSONTitleAndDate>): Recycl
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdapterTemplate01VH {
-        return AdapterTemplate01VH(ItemPostBinding.inflate(LayoutInflater.from(parent.context),parent,false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdapterBeritaTerbaruVH {
+        return AdapterBeritaTerbaruVH(ItemPostBinding.inflate(LayoutInflater.from(parent.context),parent,false))
     }
 
-    override fun onBindViewHolder(holder: AdapterTemplate01VH, position: Int) {
+    override fun onBindViewHolder(holder: AdapterBeritaTerbaruVH, position: Int) {
         holder.bind(list[position])
     }
     override fun getItemCount(): Int = list.size
 }
 
 // TITLE, JAM PUBLISH
-class AdapterTemplate02(private val list: ArrayList<dtJSONTitleAndDate>): RecyclerView.Adapter<AdapterTemplate02.AdapterTemplate02VH>() {
+class AdapterTemplate02(private val listdua: ArrayList<kumpulanDataJSONPendidikan>): RecyclerView.Adapter<AdapterTemplate02.AdapterTemplate02VH>() {
     inner class AdapterTemplate02VH(val binding: Item01Binding): RecyclerView.ViewHolder(binding.root) {
-        fun bind(jsonMentah: dtJSONTitleAndDate) {
+        fun bind(jsonMentah: kumpulanDataJSONPendidikan) {
 
             binding.item01tvJudul.text = jsonMentah.title.rendered
 
@@ -49,9 +49,32 @@ class AdapterTemplate02(private val list: ArrayList<dtJSONTitleAndDate>): Recycl
     }
 
     override fun onBindViewHolder(holder: AdapterTemplate02.AdapterTemplate02VH, position: Int) {
-        holder.bind(list[position])
+        holder.bind(listdua[position])
     }
 
-    override fun getItemCount(): Int = list.size
+    override fun getItemCount(): Int = listdua.size
+
+}
+
+class AdapterBeritaPeristiwa(private val listtiga: ArrayList<kumpulanDataJSONPeristiwa>): RecyclerView.Adapter<AdapterBeritaPeristiwa.AdapterBeritaPeristiwaVH>() {
+    inner class AdapterBeritaPeristiwaVH(val binding: Item01Binding): RecyclerView.ViewHolder(binding.root) {
+        fun bind(jsonMentah: kumpulanDataJSONPeristiwa) {
+
+            binding.item01tvJudul.text = jsonMentah.title.rendered
+
+            val parsedDate = LocalDateTime.parse(jsonMentah.date, DateTimeFormatter.ISO_DATE_TIME)
+            binding.item01tvTaksonomi.text = parsedDate.format(DateTimeFormatter.ofPattern("eeee, HH:mm"))
+        }
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdapterBeritaPeristiwa.AdapterBeritaPeristiwaVH {
+        return AdapterBeritaPeristiwaVH(Item01Binding.inflate(LayoutInflater.from(parent.context),parent,false))
+    }
+
+    override fun onBindViewHolder(holder: AdapterBeritaPeristiwa.AdapterBeritaPeristiwaVH, position: Int) {
+        holder.bind(listtiga[position])
+    }
+
+    override fun getItemCount(): Int = listtiga.size
 
 }

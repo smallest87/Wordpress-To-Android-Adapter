@@ -11,7 +11,9 @@ import retrofit2.Response
 
 class RuangTamu : AppCompatActivity() {
 
-    private val list = ArrayList<dtJSONTitleAndDate>()
+    private val kumpulanDataJuduldanTanggal = ArrayList<kumpulanDataJSONBeritaTerbaru>()
+    private val kumpulanDataPendidikan = ArrayList<kumpulanDataJSONPendidikan>()
+    private val kumpulanDataPeristiwa = ArrayList<kumpulanDataJSONPeristiwa>()
 
     private lateinit var binding: LayarRuangTamuBinding
 
@@ -21,38 +23,73 @@ class RuangTamu : AppCompatActivity() {
         binding = LayarRuangTamuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.layout1RvPost.setHasFixedSize(true)
-        binding.layout1RvPost.layoutManager = LinearLayoutManager(this)
+        binding.layout1RvTerbaru.setHasFixedSize(true)
+        binding.layout1RvTerbaru.layoutManager = LinearLayoutManager(this)
 
-        binding.layout1RvPost2.setHasFixedSize(true)
-        binding.layout1RvPost2.layoutManager = LinearLayoutManager(this)
+        binding.layout1RvPendidikan.setHasFixedSize(true)
+        binding.layout1RvPendidikan.layoutManager = LinearLayoutManager(this)
 
-        RetrofitClient.instance.getPosts(5,1,"title,date").enqueue(object: Callback<ArrayList<dtJSONTitleAndDate>>{
-            override fun onResponse(
-                call: Call<ArrayList<dtJSONTitleAndDate>>,
-                response: Response<ArrayList<dtJSONTitleAndDate>>
-            ) {
-//                val responseCode = response.code().toString()
-                response.body()?.let { list.addAll(it)}
+        binding.layout1RvPeristiwa.setHasFixedSize(true)
+        binding.layout1RvPeristiwa.layoutManager = LinearLayoutManager(this)
 
-                // mengisi adapter RecyclerView Post dengan PostAdapter yang telah diisi list
-                val adapter = AdapterTemplate01(list)
-                binding.layout1RvPost.adapter = adapter
-                Log.d("TESD","Ukuran list= " + list.size.toString())
+        RetrofitClient.instance.ambilBeritaTerbaru(5,1,"title,date",null).enqueue(
+            object: Callback<ArrayList<kumpulanDataJSONBeritaTerbaru>>{
 
-                val adapterdua = AdapterTemplate02(list)
-                binding.layout1RvPost2.adapter = adapterdua
-                Log.d("TESD","Pemasangan AdapterTemplate02")
+                override fun onResponse(
+                    call: Call<ArrayList<kumpulanDataJSONBeritaTerbaru>>,
+                    response: Response<ArrayList<kumpulanDataJSONBeritaTerbaru>>
+                ) {
+    //                val responseCode = response.code().toString()
+                    response.body()?.let { kumpulanDataJuduldanTanggal.addAll(it)}
 
+                    binding.layout1RvTerbaru.adapter = AdapterBeritaTerbaru(kumpulanDataJuduldanTanggal)
+//
+//                    val adapterdua = AdapterTemplate02(list)
+//                    binding.layout1RvPost2.adapter = adapterdua
+                }
+
+                override fun onFailure(call: Call<ArrayList<kumpulanDataJSONBeritaTerbaru>>, t: Throwable) {
+                }
             }
 
-            override fun onFailure(call: Call<ArrayList<dtJSONTitleAndDate>>, t: Throwable) {
-            }
-        })
+        )
 
-//        binding.ruanganggotaButton.setOnClickListener {
-//            val intent = Intent(this, RuangAnggota::class.java)
-//            startActivity(intent)
-//        }
+        RetrofitClient.instance.ambilBeritaPendidikan(5,1,"title,date",20).enqueue(
+            object: Callback<ArrayList<kumpulanDataJSONPendidikan>>{
+
+                override fun onResponse(
+                    call: Call<ArrayList<kumpulanDataJSONPendidikan>>,
+                    response: Response<ArrayList<kumpulanDataJSONPendidikan>>
+                ) {
+                    //                val responseCode = response.code().toString()
+                    response.body()?.let { kumpulanDataPendidikan.addAll(it)}
+
+                    binding.layout1RvPendidikan.adapter = AdapterTemplate02(kumpulanDataPendidikan)
+                }
+
+                override fun onFailure(call: Call<ArrayList<kumpulanDataJSONPendidikan>>, t: Throwable) {
+                }
+            }
+
+        )
+
+        RetrofitClient.instance.ambilBeritaPeristiwa(5,1,"title,date",21).enqueue(
+            object: Callback<ArrayList<kumpulanDataJSONPeristiwa>>{
+
+                override fun onResponse(
+                    call: Call<ArrayList<kumpulanDataJSONPeristiwa>>,
+                    response: Response<ArrayList<kumpulanDataJSONPeristiwa>>
+                ) {
+                    //                val responseCode = response.code().toString()
+                    response.body()?.let { kumpulanDataPeristiwa.addAll(it)}
+
+                    binding.layout1RvPeristiwa.adapter = AdapterBeritaPeristiwa(kumpulanDataPeristiwa)
+                }
+
+                override fun onFailure(call: Call<ArrayList<kumpulanDataJSONPeristiwa>>, t: Throwable) {
+                }
+            }
+
+        )
     }
 }

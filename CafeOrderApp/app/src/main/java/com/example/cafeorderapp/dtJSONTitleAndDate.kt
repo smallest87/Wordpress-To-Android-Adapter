@@ -1,6 +1,6 @@
 package com.example.cafeorderapp
 
-data class dtJSONTitleAndDate(
+data class kumpulanDataJSONBeritaTerbaru(
 //    val id: Int,
     val date: String?,
 //    val date_gmt: String?,
@@ -22,6 +22,24 @@ data class dtJSONTitleAndDate(
 //    val template: String?,
 //    val format: String?,
 //    val meta: MetaRendered // menuju subclass
+)
+
+data class kumpulanDataJSONPendidikan(
+    val date: String?,
+    val title: TitlePendidikan
+)
+
+data class TitlePendidikan(
+    val rendered: String?
+)
+
+data class kumpulanDataJSONPeristiwa(
+    val date: String?,
+    val title: TitlePeristiwa
+)
+
+data class TitlePeristiwa(
+    val rendered: String?
 )
 
 data class TitleRendered (
