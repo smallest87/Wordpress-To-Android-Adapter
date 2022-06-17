@@ -2,6 +2,7 @@ package com.example.cafeorderapp
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cafeorderapp.databinding.LayarRuangTamuBinding
@@ -13,7 +14,6 @@ class RuangTamu : AppCompatActivity() {
 
     private val kumpulanDataJuduldanTanggal = ArrayList<kumpulanDataJSONBeritaTerbaru>()
     private val kumpulanDataPendidikan = ArrayList<kumpulanDataJSONPendidikan>()
-    private val kumpulanDataPeristiwa = ArrayList<kumpulanDataJSONPeristiwa>()
 
     private lateinit var binding: LayarRuangTamuBinding
 
@@ -25,6 +25,7 @@ class RuangTamu : AppCompatActivity() {
 
         binding.layout1RvTerbaru.setHasFixedSize(true)
         binding.layout1RvTerbaru.layoutManager = LinearLayoutManager(this)
+            Toast.makeText(this, "Tes Klik RV", Toast.LENGTH_SHORT).show()
 
         binding.layout1RvPendidikan.setHasFixedSize(true)
         binding.layout1RvPendidikan.layoutManager = LinearLayoutManager(this)
@@ -74,19 +75,19 @@ class RuangTamu : AppCompatActivity() {
         )
 
         RetrofitClient.instance.ambilBeritaPeristiwa(5,1,"title,date",21).enqueue(
-            object: Callback<ArrayList<kumpulanDataJSONPeristiwa>>{
+            object: Callback<ArrayList<kumpulanDataJSONBeritaTerbaru>>{
 
                 override fun onResponse(
-                    call: Call<ArrayList<kumpulanDataJSONPeristiwa>>,
-                    response: Response<ArrayList<kumpulanDataJSONPeristiwa>>
+                    call: Call<ArrayList<kumpulanDataJSONBeritaTerbaru>>,
+                    response: Response<ArrayList<kumpulanDataJSONBeritaTerbaru>>
                 ) {
                     //                val responseCode = response.code().toString()
-                    response.body()?.let { kumpulanDataPeristiwa.addAll(it)}
+                    response.body()?.let { kumpulanDataJuduldanTanggal.addAll(it)}
 
-                    binding.layout1RvPeristiwa.adapter = AdapterBeritaPeristiwa(kumpulanDataPeristiwa)
+                    binding.layout1RvPeristiwa.adapter = AdapterBeritaTerbaru(kumpulanDataJuduldanTanggal)
                 }
 
-                override fun onFailure(call: Call<ArrayList<kumpulanDataJSONPeristiwa>>, t: Throwable) {
+                override fun onFailure(call: Call<ArrayList<kumpulanDataJSONBeritaTerbaru>>, t: Throwable) {
                 }
             }
 

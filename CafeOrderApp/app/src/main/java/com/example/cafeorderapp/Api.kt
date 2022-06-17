@@ -27,7 +27,7 @@ interface Api {
         @Query("page") page: Int?,
         @Query("_fields") _fields: String?,
         @Query("categories") categories: Int?
-    ) : Call<ArrayList<kumpulanDataJSONPeristiwa>>
+    ) : Call<ArrayList<kumpulanDataJSONBeritaTerbaru>>
 
 //    posts?per_page=3&categories=20
 
