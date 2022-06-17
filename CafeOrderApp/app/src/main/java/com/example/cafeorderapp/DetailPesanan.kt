@@ -17,7 +17,7 @@ class DetailPesanan : AppCompatActivity() {
         if(intent.hasExtra("order")){
             binding.textViewOrder.text = intent.getStringExtra("order")
         }else{
-            var backToLoginIntent = Intent(this, TerasAplikasi::class.java)
+            var backToLoginIntent = Intent(this, Login::class.java)
             startActivity(backToLoginIntent)
         }
 

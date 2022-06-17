@@ -41,9 +41,9 @@ class AdapterBeritaTerbaru(private val list: ArrayList<kumpulanDataJSONBeritaTer
 }
 
 // TITLE, JAM PUBLISH
-class AdapterTemplate02(private val listdua: ArrayList<kumpulanDataJSONPendidikan>): RecyclerView.Adapter<AdapterTemplate02.AdapterTemplate02VH>() {
+class AdapterTemplate02(private val listdua: ArrayList<kumpulanDataJSONBeritaTerbaru>): RecyclerView.Adapter<AdapterTemplate02.AdapterTemplate02VH>() {
     inner class AdapterTemplate02VH(val binding: Item01Binding): RecyclerView.ViewHolder(binding.root) {
-        fun bind(jsonMentah: kumpulanDataJSONPendidikan) {
+        fun bind(jsonMentah: kumpulanDataJSONBeritaTerbaru) {
 
             binding.item01tvJudul.text = jsonMentah.title.rendered
 

@@ -5,7 +5,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.cafeorderapp.databinding.LayarRuangTamuBinding
+import com.example.cafeorderapp.databinding.LayarBerandaBinding
 import com.example.cafeorderapp.retrofit.RetrofitClient
 import com.example.cafeorderapp.retrofit.kumpulanDataJSONBeritaTerbaru
 import com.example.cafeorderapp.retrofit.kumpulanDataJSONPendidikan
@@ -13,18 +13,18 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class RuangTamu : AppCompatActivity() {
+class Beranda : AppCompatActivity() {
 
     private val kumpulanDataBeritaTerbaru = ArrayList<kumpulanDataJSONBeritaTerbaru>()
-    private val kumpulanDataPendidikan = ArrayList<kumpulanDataJSONPendidikan>()
+    private val kumpulanDataPendidikan = ArrayList<kumpulanDataJSONBeritaTerbaru>()
     private val kumpulanDataPeristiwa = ArrayList<kumpulanDataJSONBeritaTerbaru>()
 
-    private lateinit var binding: LayarRuangTamuBinding
+    private lateinit var binding: LayarBerandaBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d("TESD","Masuk ke sesi Debugging.")
-        binding = LayarRuangTamuBinding.inflate(layoutInflater)
+        binding = LayarBerandaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.layout1RvTerbaru.setHasFixedSize(true)
@@ -61,11 +61,11 @@ class RuangTamu : AppCompatActivity() {
         )
 
         RetrofitClient.instance.ambilBeritaPendidikan(5,1,"id,title,date",20).enqueue(
-            object: Callback<ArrayList<kumpulanDataJSONPendidikan>>{
+            object: Callback<ArrayList<kumpulanDataJSONBeritaTerbaru>>{
 
                 override fun onResponse(
-                    call: Call<ArrayList<kumpulanDataJSONPendidikan>>,
-                    response: Response<ArrayList<kumpulanDataJSONPendidikan>>
+                    call: Call<ArrayList<kumpulanDataJSONBeritaTerbaru>>,
+                    response: Response<ArrayList<kumpulanDataJSONBeritaTerbaru>>
                 ) {
                     //                val responseCode = response.code().toString()
                     response.body()?.let { kumpulanDataPendidikan.addAll(it)}
@@ -73,7 +73,7 @@ class RuangTamu : AppCompatActivity() {
                     binding.layout1RvPendidikan.adapter = AdapterTemplate02(kumpulanDataPendidikan)
                 }
 
-                override fun onFailure(call: Call<ArrayList<kumpulanDataJSONPendidikan>>, t: Throwable) {
+                override fun onFailure(call: Call<ArrayList<kumpulanDataJSONBeritaTerbaru>>, t: Throwable) {
                 }
             }
 

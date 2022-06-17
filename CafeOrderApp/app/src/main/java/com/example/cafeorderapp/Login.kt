@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import com.example.cafeorderapp.databinding.LayarTerasAplikasiBinding
 
-class TerasAplikasi : AppCompatActivity() {
+class Login : AppCompatActivity() {
     // Menggunakan 'lateinit' sebagai persiapan binding sebelum onCreate
     // - Masukkan Agenda pembelajaran 'Tentang lateinit'
     private lateinit var binding: LayarTerasAplikasiBinding
@@ -50,7 +50,7 @@ class TerasAplikasi : AppCompatActivity() {
         }
 
         binding.tamuButton.setOnClickListener {
-            val intent = Intent(this,RuangTamu::class.java)
+            val intent = Intent(this,Beranda::class.java)
 
             startActivity(intent)
         }

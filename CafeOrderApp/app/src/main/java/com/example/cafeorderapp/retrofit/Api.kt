@@ -19,7 +19,7 @@ interface Api {
         @Query("page") page: Int?,
         @Query("_fields") _fields: String?,
         @Query("categories") categories: Int?
-    ) : Call<ArrayList<kumpulanDataJSONPendidikan>>
+    ) : Call<ArrayList<kumpulanDataJSONBeritaTerbaru>>
 
     @GET("posts?")
     fun ambilBeritaPeristiwa(

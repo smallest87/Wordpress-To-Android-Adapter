@@ -26,7 +26,7 @@
             android:windowSoftInputMode="stateHidden|adjustPan"
             android:exported="false" />
         <activity
-            android:name=".RuangTamu"
+            android:name=".Beranda"
             android:exported="false" />
         <activity
             android:name=".RuangAnggota"
@@ -38,7 +38,7 @@
             android:name=".RuangUmum"
             android:exported="false" />
         <activity
-            android:name=".TerasAplikasi"
+            android:name=".Login"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:windowSoftInputMode="stateHidden|adjustPan"
