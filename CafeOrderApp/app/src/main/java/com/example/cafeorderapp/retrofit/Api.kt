@@ -2,27 +2,31 @@ package com.example.cafeorderapp.retrofit
 
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface Api {
-    @GET("posts?")
-    fun ambilBeritaTerbaru(
+    @GET("{jenis}")
+    fun postsBeritaTerbaru(
+        @Path("jenis") jenis: String?,
         @Query("per_page") per_page: Int?,
         @Query("page") page: Int?,
         @Query("_fields") _fields: String?,
         @Query("categories") categories: Int?
     ) : Call<ArrayList<kumpulanDataJSONBeritaTerbaru>>
 
-    @GET("posts?")
-    fun ambilBeritaPendidikan(
+    @GET("{jenis}")
+    fun postsBeritaPendidikan(
+        @Path("jenis") jenis: String?,
         @Query("per_page") per_page: Int?,
         @Query("page") page: Int?,
         @Query("_fields") _fields: String?,
         @Query("categories") categories: Int?
     ) : Call<ArrayList<kumpulanDataJSONBeritaTerbaru>>
 
-    @GET("posts?")
-    fun ambilBeritaPeristiwa(
+    @GET("{jenis}")
+    fun postsBeritaPeristiwa(
+        @Path("jenis") jenis: String?,
         @Query("per_page") per_page: Int?,
         @Query("page") page: Int?,
         @Query("_fields") _fields: String?,
