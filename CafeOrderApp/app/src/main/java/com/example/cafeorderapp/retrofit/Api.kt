@@ -7,25 +7,7 @@ import retrofit2.http.Query
 
 interface Api {
     @GET("{jenis}")
-    fun postsBeritaTerbaru(
-        @Path("jenis") jenis: String?,
-        @Query("per_page") per_page: Int?,
-        @Query("page") page: Int?,
-        @Query("_fields") _fields: String?,
-        @Query("categories") categories: Int?
-    ) : Call<ArrayList<kumpulanDataJSONBeritaTerbaru>>
-
-    @GET("{jenis}")
-    fun postsBeritaPendidikan(
-        @Path("jenis") jenis: String?,
-        @Query("per_page") per_page: Int?,
-        @Query("page") page: Int?,
-        @Query("_fields") _fields: String?,
-        @Query("categories") categories: Int?
-    ) : Call<ArrayList<kumpulanDataJSONBeritaTerbaru>>
-
-    @GET("{jenis}")
-    fun postsBeritaPeristiwa(
+    fun ambilJSON(
         @Path("jenis") jenis: String?,
         @Query("per_page") per_page: Int?,
         @Query("page") page: Int?,

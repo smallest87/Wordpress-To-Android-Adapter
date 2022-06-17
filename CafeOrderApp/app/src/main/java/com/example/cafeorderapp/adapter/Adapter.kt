@@ -18,7 +18,6 @@ class AdapterBeritaTerbaru(private val list: ArrayList<kumpulanDataJSONBeritaTer
 
     inner class AdapterBeritaTerbaruVH(val binding: ItemPostBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(jsonMentah: kumpulanDataJSONBeritaTerbaru) {
-            Log.d("TESD","isi jsonMentah= " + jsonMentah.date.toString())
             binding.itemRvTvJudul.text = jsonMentah.title.rendered
 
             val parsedDate = LocalDateTime.parse(jsonMentah.date, DateTimeFormatter.ISO_DATE_TIME)

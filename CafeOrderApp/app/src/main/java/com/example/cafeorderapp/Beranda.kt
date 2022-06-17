@@ -32,7 +32,7 @@ class Beranda : AppCompatActivity() {
         binding.layout1RvPeristiwa.setHasFixedSize(true)
         binding.layout1RvPeristiwa.layoutManager = LinearLayoutManager(this)
 
-        RetrofitClient.instance.postsBeritaTerbaru("posts",5,1,"id,title,date",null).enqueue(
+        RetrofitClient.instance.ambilJSON("posts",5,1,"id,title,date",null).enqueue(
             object: Callback<ArrayList<kumpulanDataJSONBeritaTerbaru>>{
 
                 override fun onResponse(
@@ -50,7 +50,7 @@ class Beranda : AppCompatActivity() {
 
         )
 
-        RetrofitClient.instance.postsBeritaPendidikan("posts",5,1,"id,title,date",20).enqueue(
+        RetrofitClient.instance.ambilJSON("posts",5,1,"id,title,date",20).enqueue(
             object: Callback<ArrayList<kumpulanDataJSONBeritaTerbaru>>{
 
                 override fun onResponse(
@@ -68,7 +68,7 @@ class Beranda : AppCompatActivity() {
 
         )
 
-        RetrofitClient.instance.postsBeritaPeristiwa("posts",5,1,"id,title,date",21).enqueue(
+        RetrofitClient.instance.ambilJSON("posts",5,1,"id,title,date",21).enqueue(
             object: Callback<ArrayList<kumpulanDataJSONBeritaTerbaru>>{
 
                 override fun onResponse(
