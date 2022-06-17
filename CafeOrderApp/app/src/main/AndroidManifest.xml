@@ -18,6 +18,9 @@
             android:name=".MejaPesan"
             android:exported="false" />
         <activity
+            android:name=".ArtikelTunggal"
+            android:exported="false" />
+        <activity
             android:name=".MejaPendaftaran"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:windowSoftInputMode="stateHidden|adjustPan"

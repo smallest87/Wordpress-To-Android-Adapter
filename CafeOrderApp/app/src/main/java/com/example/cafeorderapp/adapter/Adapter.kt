@@ -1,11 +1,15 @@
 package com.example.cafeorderapp
 
+import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cafeorderapp.databinding.Item01Binding
 import com.example.cafeorderapp.databinding.ItemPostBinding
+import com.example.cafeorderapp.retrofit.kumpulanDataJSONBeritaTerbaru
+import com.example.cafeorderapp.retrofit.kumpulanDataJSONPendidikan
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -29,6 +33,9 @@ class AdapterBeritaTerbaru(private val list: ArrayList<kumpulanDataJSONBeritaTer
 
     override fun onBindViewHolder(holder: AdapterBeritaTerbaruVH, position: Int) {
         holder.bind(list[position])
+        holder.itemView.setOnClickListener {
+            Toast.makeText(holder.itemView.context,list[position].title.rendered,Toast.LENGTH_SHORT).show()
+        }
     }
     override fun getItemCount(): Int = list.size
 }

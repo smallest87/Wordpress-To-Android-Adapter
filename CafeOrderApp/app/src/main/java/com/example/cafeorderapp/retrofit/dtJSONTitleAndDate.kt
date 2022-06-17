@@ -1,7 +1,7 @@
-package com.example.cafeorderapp
+package com.example.cafeorderapp.retrofit
 
 data class kumpulanDataJSONBeritaTerbaru(
-//    val id: Int,
+    val id: Int?,
     val date: String?,
 //    val date_gmt: String?,
 //    val guid: GuidRendered,

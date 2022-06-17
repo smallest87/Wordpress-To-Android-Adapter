@@ -1,4 +1,4 @@
-package com.example.cafeorderapp
+package com.example.cafeorderapp.retrofit
 
 import retrofit2.Call
 import retrofit2.http.GET

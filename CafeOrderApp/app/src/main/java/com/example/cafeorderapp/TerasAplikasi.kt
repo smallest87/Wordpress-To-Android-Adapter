@@ -43,7 +43,8 @@ class TerasAplikasi : AppCompatActivity() {
         }
 
         binding.otherButton.setOnClickListener {
-            val intent = Intent(this, MejaPendaftaran::class.java)
+//            val intent = Intent(this, MejaPendaftaran::class.java)
+            val intent = Intent(this, ArtikelTunggal::class.java)
 
             startActivity(intent)
         }
